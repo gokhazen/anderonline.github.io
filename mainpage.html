@@ -1,0 +1,423 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<title><3 mrander</title>
+	<link rel="icon" href="logophotos/favicon.ico" type="image/x-icon">
+    <link rel="shortcut icon" href="logophotos/favicon.ico" type="image/x-icon">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title><3 mrander</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            margin: 0;
+            padding: 0;
+            background: url('logophotos/background-image.jpg');
+            background-size: cover;
+            background-repeat: no-repeat;
+            background-attachment: fixed;
+        }
+
+        header {
+    position: fixed;
+    top: 0;
+    width: 100%;
+    background-color: #343a40;
+    color: #fff;
+    text-align: left;
+    padding: 1em;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    z-index: 1000;
+}
+
+h1 {
+    margin: 0;
+    font-size: 2em;
+    display: flex;
+    align-items: center;
+}
+
+h1 img {
+    width: 40px; /* Adjust the size as needed */
+    height: auto;
+    margin-right: 10px;
+}
+
+        nav {
+            display: flex;
+            overflow: hidden; /* Taşan menü öğelerini gizler */
+        }
+
+        nav a {
+            color: #fff;
+            text-decoration: none;
+            padding: 0.5em 1em;
+            margin-right: 10px;
+            border-radius: 5px;
+            transition: background-color 0.3s ease;
+            position: relative;
+        }
+
+        nav a:hover {
+            background-color: #495057;
+        }
+
+        nav a::before {
+            content: '';
+            position: absolute;
+            width: 100%;
+            height: 2px;
+            bottom: 0;
+            left: 0;
+            background-color: #fff;
+            transform: scaleX(0);
+            transform-origin: bottom right;
+            transition: transform 0.3s ease;
+        }
+
+        nav a:hover::before {
+            transform: scaleX(1);
+            transform-origin: bottom left;
+        }
+
+        header h1:hover {
+            animation: textAnimation 1s infinite alternate;
+        }
+
+
+
+ header h1:hover {
+            animation: textAnimation 1s infinite alternate;
+        }
+
+        @keyframes textAnimation {
+            0% {
+                color: #fff; /* Normal renk */
+                transform: scale(1);
+            }
+            100% {
+                color: #ffffff00; /* Tamamen saydam (RGBA formatında) */
+                transform: scale(1.1);
+            }
+        }
+
+        .portfolio {
+    background-color: rgba(255, 255, 255, 0.8); /* Şeffaf beyaz arkaplan */
+    padding: 2em;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    margin: 20px;
+}
+
+.portfolio h2 {
+    font-size: 2em;
+    background-color: transparent; /* Arka planı tamamen şeffaf yap */
+}
+
+.project-frame {
+    background-color: rgba(255, 255, 255, 0.7); /* Şeffaf beyaz arkaplan */
+    padding: 2em;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    margin: 20px;
+}
+
+
+		
+		.made-with-love {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            background-color: #343a40;
+            color: #fff;
+            padding: 5px 10px;
+            border-radius: 5px;
+        }
+		
+		 .made-with-love span {
+            animation: colorChange 2s infinite alternate;
+        }
+		
+		@keyframes colorChange {
+            0% {
+                color: #ff0000; /* Kırmızı */
+            }
+            50% {
+                color: #00ff00; /* Yeşil (isterseniz değiştirebilirsiniz) */
+            }
+            100% {
+                color: #0000ff; /* Mavi (isterseniz değiştirebilirsiniz) */
+            }
+        }
+
+        .footer {
+    background-color: rgba(52, 58, 64, 0.8); /* Şeffaf gri arkaplan */
+    color: #fff;
+    text-align: left;
+    padding: 1em;
+    position: fixed;
+    bottom: 20px;
+    left: 20px;
+    max-width: calc(100% - 20px);
+    width: 300px;
+    border-radius: 10px; /* Köşeleri yumuşat */
+}
+
+.footer h2 {
+    font-size: 1.8em;
+    background-color: transparent; /* Arka planı tamamen şeffaf yap */
+}
+
+        .footer a {
+            display: block;
+            margin-bottom: 10px;
+            text-indent: -9999px;
+        }
+
+        .button-container {
+            display: flex;
+            flex-wrap: wrap;
+        }
+
+        .button {
+            display: inline-block;
+            background-color: transparent;
+            background-size: cover;
+            width: 50px;
+            height: 50px;
+            margin-right: 10px;
+            border: none;
+            text-indent: -9999px;
+            transition: background-color 0.3s ease;
+        }
+
+        .button:hover {
+            background-color: rgba(0, 0, 0, 0.5);
+        }
+
+        .button-discord {
+            background-image: url('logophotos/discord-icon.svg');
+        }
+
+        .button-github {
+            background-image: url('logophotos/github-icon.png');
+        }
+
+        .button-instagram {
+            background-image: url('logophotos/instagram-icon.png');
+        }
+
+        .button-linkedin {
+            background-image: url('logophotos/linkedin-icon.svg');
+        }
+
+        .button-mastodon {
+            background-image: url('logophotos/mastodon-icon.png');
+        }
+		
+		.button-pinterest {
+            background-image: url('logophotos/pinterest-icon.png');
+        }
+		
+		.button-soundcloud {
+            background-image: url('logophotos/soundcloud-icon.png');
+        }
+		
+		.button-spotify {
+            background-image: url('logophotos/spotify-icon.png');
+        }
+		
+		.button-steam {
+            background-image: url('logophotos/steam-icon.png');
+        }
+		
+		.button-twitter {
+            background-image: url('logophotos/twitter-icon.png');
+        }
+		
+		.button-xbox {
+            background-image: url('logophotos/xbox-icon.png');
+        }
+		
+		.button-youtube {
+            background-image: url('logophotos/youtube-icon.png');
+        }
+		
+		
+		 .gif-slider {
+            position: fixed;
+            top: 70%;
+            right: 10%;
+            transform: translate(0, -50%);
+            max-width: 300px;
+            overflow: hidden;
+            border: 5px solid #fff;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+            z-index: 999; /* Make sure the slider is above other elements */
+        }
+
+        .gif-slider img {
+            width: 100%;
+            height: auto;
+            display: none;
+        }
+	
+    .dynamic-message {
+        font-size: 1.5em; /* Örnek bir boyut, isteğinize göre ayarlayabilirsiniz */
+        font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    }
+
+@media screen and (max-width: 600px) {
+    /* Telefonda görüntülenecek stil kuralları */
+    body {
+        font-size: 14px;
+    }
+    /* Diğer stiller */
+}
+
+
+		
+    </style>
+</head >
+
+<body style="margin-top: 40px;">
+   <header style="margin-bottom: 70px;">
+    <h1><img src="logophotos/favicon.ico" alt="Logo"> MRANDER.online</h1>
+    <nav>
+        <a class="nav-link" href="index.html">Anasayfa</a>
+        <a class="nav-link" href="projects.html">Projelerim</a>
+        <a class="nav-link" href="info.html">Hakkımda</a>
+		<a class="nav-link" href="music.html">Müzik</a>
+        <a class="nav-link" href="gameshub.html">Oyunlar</a>
+    </nav>
+</header >
+    
+    <section class="portfolio" >
+    <h2 id="welcomeMessage">Welcome to my HUB</h2>
+	<p id="dynamicMessage"></p>
+    <p>Websitem, geliştirdiğim projelerimi paylaşabilmek ve projelerimin ortak noktası olmak için dizayn edilmiştir.</p>
+    <p>Projelerime ulaşmak için projelerim menüsünü kullanabilir yada HTML5 tabanlı oyunlara ulaşmak için Oyunlar menüsünü kullanabilirsiniz!</p>
+    <p>Eğer benimle alakalı daha fazla bilgi almak isterseniz yada bana ulaşmak isterseniz Hakkımda menüsünü kullanabilirsiniz</p>
+</section>
+
+    <footer class="footer">
+        <h2>Hesaplarım</h2>
+        <div class="button-container">
+            <a href="https://www.instagram.com/gokhazen/" target="_blank" class="button button-instagram" aria-label="Instagram'a Git"></a>
+            <a href="https://twitter.com/gokhazen" target="_blank" class="button button-twitter" aria-label="Twitter'a Git"></a>
+            <a href="https://www.linkedin.com/" target="_blank" class="button button-linkedin" aria-label="LinkedIn'e Git"></a>
+            <a href="https://github.com/gokhazen" target="_blank" class="button button-github" aria-label="GitHub'a Git"></a>
+            <a href="https://discordapp.com/users/427159467352915970" target="_blank" class="button button-discord" aria-label="Discord'a Git"></a>
+            <a href="https://mastodon.social/@gokhazen" target="_blank" class="button button-mastodon" aria-label="Mastodon'a Git"></a>
+            <a href="https://tr.pinterest.com/gokhazen/" target="_blank" class="button button-pinterest" aria-label="Pinterest'e Git"></a>
+            <a href="https://soundcloud.com/yemres-player" target="_blank" class="button button-soundcloud" aria-label="Soundcloud'a Git"></a>
+            <a href="https://open.spotify.com/user/ncl03zzr8a39m6pudqbfn518s" target="_blank" class="button button-spotify" aria-label="Spotify'a Git"></a>
+            <a href="https://steamcommunity.com/id/apeshe/" target="_blank" class="button button-steam" aria-label="Steam'e Git"></a>
+            <a href="link" target="_blank" class="button button-xbox" aria-label="Xbox'a Git"></a>
+            <a href="https://www.youtube.com/channel/UCKPqdp3Bxd0NTKzqdekdBzg" target="_blank" class="button button-youtube" aria-label="Youtube'a Git"></a>
+            <a href="link" target="_blank" class="button button-aaa" aria-label="AAA"></a>
+            <a href="link" target="_blank" class="button button-aaa" aria-label="AAA"></a>
+			<a href="link" target="_blank" class="button button-aaa" aria-label="AAA"></a>
+        </div>
+        <!-- Diğer sosyal medya hesaplarına yönlendirme butonları buraya eklenebilir -->
+    </footer>
+	
+	
+	<div class="gif-slider">
+    <img src="gif/giphy (1).gif" alt="Gif 1">
+    <img src="gif/giphy (2).gif" alt="Gif 1">
+    <img src="gif/giphy (3).gif" alt="Gif 1">
+    <img src="gif/giphy (4).gif" alt="Gif 1">
+    <img src="gif/giphy (5).gif" alt="Gif 1">
+    <img src="gif/giphy (6).gif" alt="Gif 1">
+    <img src="gif/giphy (7).gif" alt="Gif 1">
+    <img src="gif/giphy (8).gif" alt="Gif 1">
+    <img src="gif/giphy (9).gif" alt="Gif 1">
+    <img src="gif/giphy (10).gif" alt="Gif 1">
+    <img src="gif/giphy (11).gif" alt="Gif 1">
+    <img src="gif/giphy (12).gif" alt="Gif 1">
+    <img src="gif/giphy (13).gif" alt="Gif 1">
+    <img src="gif/giphy (14).gif" alt="Gif 1">
+    <img src="gif/giphy (15).gif" alt="Gif 1">
+    <img src="gif/giphy (16).gif" alt="Gif 1">
+    <img src="gif/giphy (17).gif" alt="Gif 1">
+    <img src="gif/giphy (18).gif" alt="Gif 1">
+    <img src="gif/giphy (19).gif" alt="Gif 1">
+    <img src="gif/giphy (20).gif" alt="Gif 1">
+</div>
+
+	
+	
+	        <div class="made-with-love">made with <span>love</span> &lt;3 <span>mrander</span></div>
+
+<script>
+        var welcomeMessage = document.getElementById('welcomeMessage');
+		var dynamicMessage = document.getElementById('dynamicMessage');
+
+
+
+
+document.addEventListener('DOMContentLoaded', function () {
+            // JavaScript kodu buraya eklenir
+            var gifSlider = document.querySelector('.gif-slider');
+            var gifs = gifSlider.querySelectorAll('img');
+            var currentGifIndex = 0;
+
+            function showNextGif() {
+                gifs.forEach(function (gif) {
+                    gif.style.display = 'none';
+                });
+
+                gifs[currentGifIndex].style.display = 'block';
+
+                currentGifIndex = (currentGifIndex + 1) % gifs.length;
+
+                setTimeout(showNextGif, 3000); // Her 3 saniyede bir gif değişimi
+            }
+
+            showNextGif();
+        });
+
+
+
+        // Günün saatini al
+        var currentHour = new Date().getHours();
+
+        // Saate göre mesajı ayarla
+        if (currentHour >= 6 && currentHour < 12) {
+            welcomeMessage.innerText = 'Günaydın, ana ekrana hoşgeldiniz!';
+        } else if (currentHour >= 12 && currentHour < 18) {
+            welcomeMessage.innerText = 'İyi akşamlar, ana ekrana hoşgeldiniz!';
+        } else {
+            welcomeMessage.innerText = 'İyi geceler, ana ekrana hoşgeldiniz!';
+        }
+		
+		// Rastgele dinamik mesajları tanımla
+    var dynamicMessages = [
+        "Bugün harika görünüyorsunuz!",
+        "Umarız gününüz güzel geçiyordur.",
+        "Yaratıcı projeler üzerinde çalışmaya hazır mısınız?",
+        "Sorularınız varsa çekinmeden bana sorabilirsiniz.",
+        "Gününüzü renklendirmek için buradayım!",
+        "Başka neler keşfetmek istersiniz?",
+        "Hayalinizdeki projeyi hayata geçirmeye hazır olun!",
+        "Bugün bir şeyler öğrenmek için harika bir gün!",
+        "İlham almak için projelerime göz atabilirsiniz."
+        // İstediğiniz kadar mesaj ekleyebilirsiniz
+    ];
+
+    // Rastgele bir dinamik mesajı seç
+    var randomMessage = dynamicMessages[Math.floor(Math.random() * dynamicMessages.length)];
+
+    // Mesajı ekrana yazdır
+    dynamicMessage.innerHTML = '<span class="dynamic-message">' + randomMessage + '</span>';
+
+		
+    </script>
+
+
+</body>
+</html>
