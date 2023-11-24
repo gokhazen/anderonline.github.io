@@ -18,6 +18,46 @@
            background-attachment: fixed;
         }
 
+@media screen and (max-width: 600px) {
+    body {
+        font-size: 11.5px;
+        margin-top: 100px !important;
+	}
+
+    header {
+        flex-direction: column; /* Stack header items vertically for smaller screens */
+        text-align: center; /* Center align for smaller screens */
+    }
+
+    h1 {
+        margin-bottom: 10px; /* Add space below the title */
+    }
+
+    nav {
+        margin-top: 3px; /* Add space above the navigation links */
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+    }
+
+    nav a {
+        width: calc(30% - 10px) !important; /* Adjust the size of the navigation buttons as needed */
+        height: 30px !important;
+        margin: 1px !important; /* Adjust the spacing between navigation buttons as needed */
+        box-sizing: border-box; /* Include padding and border in the element's total width and height */
+        padding: 5px; /* Add padding to the navigation buttons */
+    }
+
+    .button {
+        width: 30px !important; /* Adjust the size of the buttons as needed */
+        height: 30px !important;
+        margin: 5px !important; /* Adjust the spacing between buttons as needed */
+        box-sizing: border-box; /* Include padding and border in the element's total width and height */
+        padding: 5px; /* Add padding to the buttons */
+    }
+}
+
+
         header {
     position: fixed;
     top: 0;
@@ -224,6 +264,7 @@ h1 img {
     <nav>
         <a class="nav-link" href="index.html">Anasayfa</a>
         <a class="nav-link" href="projects.html">Projelerim</a>
+		<a class="nav-link" href="smith.html">Smith</a>
         <a class="nav-link" href="info.html">Hakkımda</a>
 		<a class="nav-link" href="music.html">Müzik</a>
         <a class="nav-link" href="gameshub.html">Oyunlar</a>

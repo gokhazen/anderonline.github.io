@@ -32,6 +32,46 @@
     z-index: 1000;
 }
 
+
+@media screen and (max-width: 600px) {
+    body {
+        font-size: 11.5px;
+        margin-top: 100px !important;
+	}
+
+    header {
+        flex-direction: column; /* Stack header items vertically for smaller screens */
+        text-align: center; /* Center align for smaller screens */
+    }
+
+    h1 {
+        margin-bottom: 10px; /* Add space below the title */
+    }
+
+    nav {
+        margin-top: 3px; /* Add space above the navigation links */
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+    }
+
+    nav a {
+        width: calc(30% - 10px) !important; /* Adjust the size of the navigation buttons as needed */
+        height: 30px !important;
+        margin: 1px !important; /* Adjust the spacing between navigation buttons as needed */
+        box-sizing: border-box; /* Include padding and border in the element's total width and height */
+        padding: 5px; /* Add padding to the navigation buttons */
+    }
+
+    .button {
+        width: 30px !important; /* Adjust the size of the buttons as needed */
+        height: 30px !important;
+        margin: 5px !important; /* Adjust the spacing between buttons as needed */
+        box-sizing: border-box; /* Include padding and border in the element's total width and height */
+        padding: 5px; /* Add padding to the buttons */
+    }
+}
+
 h1 {
     margin: 0;
     font-size: 2em;
@@ -245,38 +285,12 @@ h1 img {
             background-image: url('logophotos/youtube-icon.png');
         }
 		
-		
-		 .gif-slider {
-            position: fixed;
-            top: 70%;
-            right: 10%;
-            transform: translate(0, -50%);
-            max-width: 300px;
-            overflow: hidden;
-            border: 5px solid #fff;
-            border-radius: 10px;
-            box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
-            z-index: 999; /* Make sure the slider is above other elements */
-        }
-
-        .gif-slider img {
-            width: 100%;
-            height: auto;
-            display: none;
-        }
 	
     .dynamic-message {
         font-size: 1.5em; /* Örnek bir boyut, isteğinize göre ayarlayabilirsiniz */
         font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     }
 
-@media screen and (max-width: 600px) {
-    /* Telefonda görüntülenecek stil kuralları */
-    body {
-        font-size: 14px;
-    }
-    /* Diğer stiller */
-}
 
 
 		
@@ -289,6 +303,7 @@ h1 img {
     <nav>
         <a class="nav-link" href="index.html">Anasayfa</a>
         <a class="nav-link" href="projects.html">Projelerim</a>
+		<a class="nav-link" href="smith.html">Smith</a>
         <a class="nav-link" href="info.html">Hakkımda</a>
 		<a class="nav-link" href="music.html">Müzik</a>
         <a class="nav-link" href="gameshub.html">Oyunlar</a>
@@ -325,29 +340,6 @@ h1 img {
         <!-- Diğer sosyal medya hesaplarına yönlendirme butonları buraya eklenebilir -->
     </footer>
 	
-	
-	<div class="gif-slider">
-    <img src="gif/giphy (1).gif" alt="Gif 1">
-    <img src="gif/giphy (2).gif" alt="Gif 1">
-    <img src="gif/giphy (3).gif" alt="Gif 1">
-    <img src="gif/giphy (4).gif" alt="Gif 1">
-    <img src="gif/giphy (5).gif" alt="Gif 1">
-    <img src="gif/giphy (6).gif" alt="Gif 1">
-    <img src="gif/giphy (7).gif" alt="Gif 1">
-    <img src="gif/giphy (8).gif" alt="Gif 1">
-    <img src="gif/giphy (9).gif" alt="Gif 1">
-    <img src="gif/giphy (10).gif" alt="Gif 1">
-    <img src="gif/giphy (11).gif" alt="Gif 1">
-    <img src="gif/giphy (12).gif" alt="Gif 1">
-    <img src="gif/giphy (13).gif" alt="Gif 1">
-    <img src="gif/giphy (14).gif" alt="Gif 1">
-    <img src="gif/giphy (15).gif" alt="Gif 1">
-    <img src="gif/giphy (16).gif" alt="Gif 1">
-    <img src="gif/giphy (17).gif" alt="Gif 1">
-    <img src="gif/giphy (18).gif" alt="Gif 1">
-    <img src="gif/giphy (19).gif" alt="Gif 1">
-    <img src="gif/giphy (20).gif" alt="Gif 1">
-</div>
 
 	
 	
