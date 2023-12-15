@@ -1,3 +1,0 @@
-text:uygulama1,link1:blabla1,link2:blabla2
-text:uygulama2,link1:blabla3,link2:blabla4
-text:uygulama3,link1:blabla5,link2:blabla6
