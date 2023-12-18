@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="tr">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+        body {
+            font-family: 'Poppins', sans-serif;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+            transition: background-image 0.5s ease-in-out;
+            background-color: #000; /* Set a default background color */
+            color: #fff;
+            opacity: 0.5; /* Adjust opacity for more transparency */
+        }
+
+        .container {
+            text-align: center;
+            background-color: rgba(0, 0, 0, 0.5); /* Adjust alpha for more transparency */
+            padding: 40px;
+            border-radius: 10px;
+            box-shadow: 0 0 20px rgba(236, 240, 241, 0.2);
+            max-width: 600px;
+            margin: auto;
+        }
+
+        h1 {
+            color: #fff;
+            font-size: 10em; /* Increased font size */
+            margin-bottom: 20px;
+            letter-spacing: 2px;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
+        }
+
+        p {
+            font-size: 1.em;
+            margin-bottom: 30px;
+        }
+
+        button {
+            background-color: #e74c3c;
+            color: #fff;
+            padding: 15px 30px;
+            font-size: 18px;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+            margin: 10px;
+            transition: background-color 0.3s ease;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+
+        button:hover {
+            background-color: #c0392b;
+        }
+
+        /* Yeni stil: Görünmez buton */
+        .invisible-button {
+            display: none;
+        }
+    </style>
+    <script>
+        async function setRandomBackground() {
+            try {
+                const response = await fetch('https://api.unsplash.com/photos/random?query=turkey&orientation=landscape&client_id=Q_JFuL4r_tJUQBwPWeJpCYzj1BV4qCnrtkGuO0oQgdc');
+                const data = await response.json();
+                const imageUrl = data.urls.regular;
+                document.body.style.backgroundImage = `url('${imageUrl}')`;
+            } catch (error) {
+                console.error('Error fetching image:', error);
+            }
+
+            // Butonu görünmez yap
+            const button = document.querySelector('.invisible-button');
+            button.style.display = 'none';
+        }
+
+        window.onload = setRandomBackground;
+    </script>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Poppins:400,700&display=swap">
+    <title>Büyük Türkiye</title>
+</head>
+
+<body>
+    <div class="container">
+        <h1>Türkiye</h1>
+        <p></p>
+        <button onclick="window.location.href='deprem.html'">Deprem Takip</button>
+        <button onclick="window.location.href='sayfa2.html'">Nüfus</button>
+
+        <!-- Arka planı rastgele değiştirmek için buton -->
+        <button class="invisible-button" onclick="setRandomBackground()">Rasgele Fotoğraf Ekle</button>
+    </div>
+</body>
+
+</html>
