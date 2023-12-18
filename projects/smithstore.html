@@ -1,0 +1,600 @@
+
+
+	<!DOCTYPE html>
+	<html lang="en">
+	<head>
+		<title>AllinSmithStore</title>
+	<link rel="icon" href="../logophotos/favicon.ico" type="image/x-icon">
+    <link rel="shortcut icon" href="../logophotos/favicon.ico" type="image/x-icon">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Smith Appstor</title>
+		<style>
+    body {
+        font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        background-color: #262626; /* Dark gray background */
+        margin: 0;
+        padding: 0;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        min-height: 100vh;
+        color: #fff; /* Beyaz text rengi */
+    }
+
+
+    @media screen and (max-width: 600px) {
+    body {
+        font-size: 11.5px;
+        margin-top: 100px !important;
+	}
+
+    header {
+        flex-direction: column; /* Stack header items vertically for smaller screens */
+        text-align: center; /* Center align for smaller screens */
+    }
+
+    h1 {
+        margin-bottom: 10px; /* Add space below the title */
+    }
+
+    nav {
+        margin-top: 3px; /* Add space above the navigation links */
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+    }
+
+    nav a {
+        width: calc(30% - 10px) !important; /* Adjust the size of the navigation buttons as needed */
+        height: 30px !important;
+        margin: 1px !important; /* Adjust the spacing between navigation buttons as needed */
+        box-sizing: border-box; /* Include padding and border in the element's total width and height */
+        padding: 5px; /* Add padding to the navigation buttons */
+    }
+
+    .button {
+        width: 30px !important; /* Adjust the size of the buttons as needed */
+        height: 30px !important;
+        margin: 5px !important; /* Adjust the spacing between buttons as needed */
+        box-sizing: border-box; /* Include padding and border in the element's total width and height */
+        padding: 5px; /* Add padding to the buttons */
+    }
+    }
+
+
+    header {
+        position: fixed;
+        top: 0;
+        width: 100%;
+        background-color: #343a40;
+        color: #fff;
+        text-align: left;
+        padding: 1em;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        z-index: 1000;
+    }
+
+    h1 {
+        margin: 0;
+        font-size: 2em;
+        display: flex;
+        align-items: center;
+    }
+
+    h1 img {
+        width: 40px; /* Adjust the size as needed */
+        height: auto;
+        margin-right: 10px;
+    }
+
+    nav {
+        display: flex;
+        overflow: hidden;
+    }
+
+    nav a {
+        color: #fff;
+        text-decoration: none;
+        padding: 0.5em 1em;
+        margin-right: 10px;
+        border-radius: 5px;
+        transition: background-color 0.3s ease;
+        position: relative;
+        }
+
+    nav a:hover {
+        background-color: #495057;
+        }
+
+    nav a::before {
+        content: '';
+        position: absolute;
+        width: 100%;
+        height: 2px;
+        bottom: 0;
+        left: 0;
+        background-color: #fff;
+        transform: scaleX(0);
+        transform-origin: bottom right;
+        transition: transform 0.3s ease;
+        }
+
+    nav a:hover::before {
+        transform: scaleX(1);
+        transform-origin: bottom left;
+        }
+
+    header h1:hover {
+        animation: textAnimation 1s infinite alternate;
+        }
+
+    @keyframes textAnimation {
+        0% {
+            color: #fff; /* Normal renk */
+            transform: scale(1);
+        }
+        100% {
+            color: #ffffff00; /* Tamamen saydam (RGBA formatında) */
+            transform: scale(1.1);
+        }
+        }
+
+    #uygulama-container {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: space-around;
+    }
+
+    .logo-container {
+        display: flex;
+        align-items: center;
+        justify-content: center; /* Center the logo */
+        margin-bottom: 10px;
+    }
+
+    .logo {
+        width: 60px; /* Adjust the size of the logos as needed */
+        height: auto;
+        border-radius: 8px;
+        margin-right: 10px;
+    }
+
+    .app-info {
+        display: flex;
+        flex-direction: column;
+        }
+
+    .app-name {
+        font-size: 18px; /* İstenilen font büyüklüğü */
+        font-weight: bold;
+        margin-bottom: 5px;
+        }
+
+    .app-category {
+        font-size: 14px; /* İstenilen font büyüklüğü */
+        color: #777; /* İstenilen renk */
+        }
+
+    .card {
+        background-color: #333;
+        border-radius: 12px;
+        box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+        overflow: hidden;
+        width: calc(50% - 20px); /* Yarı genişlik - 20px kenar boşluğu */
+        min-width: 150px; /* Minimum 300px genişlik */
+        text-align: center;
+        margin: 10px;
+        transition: transform 0.3s ease, box-shadow 0.3s ease;
+        border: 2px solid #444;
+        box-sizing: border-box;
+    }
+
+    @media screen and (max-width: 600px) {
+    .card {
+        width: calc(100% - 20px); /* Tam genişlik küçük ekranlarda */
+    }
+    }
+
+
+
+
+    .card:hover {
+        box-shadow: 0 12px 24px rgba(0, 0, 0, 0.2);
+    }
+
+    .card-header {
+        background-color: #1a1a1a;
+        color: #fff;
+        padding: 10px;
+        border-bottom: 2px solid #333;
+        border-top-left-radius: 12px;
+        border-top-right-radius: 12px;
+    }
+
+    .card-body {
+        padding: 20px;
+    }
+
+    h3 {
+        margin-bottom: 15px;
+        color: #fff; /* Red title color */
+        font-size: 18px;
+    }
+
+    p {
+        margin-bottom: 10px;
+        color: #bbb; /* Light gray text color */
+        font-size: 14px;
+    }
+
+    input[type="text"] {
+        width: 100%;
+        padding: 10px;
+        margin-top: 10px;
+        box-sizing: border-box;
+        border: 1px solid #444; /* Darker gray border */
+        border-radius: 6px;
+    }
+
+    a {
+        display: inline-block;
+        padding: 10px 20px;
+        text-decoration: none;
+        color: #fff; /* White text color */
+        background-color: #2ecc71; /* Green button background */
+        border-radius: 6px;
+        transition: background-color 0.3s ease;
+        margin-top: 10px;
+        cursor: pointer;
+        font-size: 14px;
+    }
+
+    a:hover {
+        background-color: #27ae60; /* Slightly darker green on hover */
+    }
+
+    .virus-total-button {
+        position: fixed;
+        bottom: 70px;
+        right: 10px;
+        background: linear-gradient(90deg, #2ecc71, #3498db);
+        color: #fff;
+        padding: 15px 20px;
+        border: none;
+        border-radius: 10px;
+        cursor: pointer;
+        font-size: 14px;
+        transition: background 0.3s ease, transform 0.3s ease, box-shadow 0.3s ease, border 0.3s ease; /* Box-shadow ve border eklemesi */
+    }
+
+    .virus-total-button:hover {
+        background: linear-gradient(90deg, #3498db, #2ecc71);
+        transform: scale(1.1); /* Boyut büyüklüğü artırıldı */
+        box-shadow: 0 0 20px rgba(0, 0, 0, 0.2); /* Hover durumunda hafif bir gölge eklendi */
+        border: 2px solid #fff; /* Kenarlık efekti eklendi */
+    }
+
+    canvas {
+        display: block;
+        position: fixed;
+        top: 0;
+        left: 0;
+        z-index: -1; /* Sayfanın diğer içeriklerinin üzerine çıkmasını önler */
+        pointer-events: none; /* Fare etkileşimini devre dışı bırakır */
+    }
+
+    .custom-header {
+        position: fixed;
+        top: 50%;
+        left: 0;
+        transform: translate(0, -50%);
+        margin: 0;
+        padding: 0;
+        z-index: 1001;
+        font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        font-size: 40px;
+        font-weight: bold;
+        color: #fff;
+        padding: 20px 30px;
+        border-bottom-right-radius: 20px;
+        border-top-right-radius: 20px;
+        box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3);
+        transition: background 0.5s ease;
+        background-color: black; /* Düz siyah arkaplan */
+    }
+
+#uygulama-search {
+            z-index: 1001;
+            position: fixed;
+            top: 85px;
+            left: 20px;
+            width: 260px;
+            padding: 10px;
+            box-sizing: border-box;
+            border: 1px solid #444;
+            border-radius: 6px;
+            background-color: #333;
+            color: #fff;
+        }
+
+		</style>
+	</head>
+	<body style="margin-top: 40px;">
+   <header style="margin-bottom: 70px;">
+    <h1><img src="../logophotos/favicon.ico" alt="Logo"> MRANDER.online</h1>
+    <nav>
+        <a class="nav-link" href="../index.html">Anasayfa</a>
+        <a class="nav-link" href="../projects.html">Projelerim</a>
+		<a class="nav-link" href="../smith.html">Smith</a>
+        <a class="nav-link" href="../info.html">Hakkımda</a>
+		<a class="nav-link" href="../music.html">Müzik</a>
+        <a class="nav-link" href="../gameshub.html">Oyunlar</a>
+    </nav>
+	</header >
+	
+	
+	
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+	<div class="card">
+		<div class="card-header">
+			<h1></h1>
+		</div>
+		<div class="card-body" id="uygulama-container">
+			<input type="text" id="uygulama-search" placeholder="Uygulama veya kategori aratabilirsiniz!" oninput="filterApplications()">
+		</div>
+	</div>
+    
+<h1 id="smithStore" class="custom-header">
+    Smith Store
+</h1>
+
+
+   
+    <button onclick="openVirusTotal()" class="virus-total-button">Check with VirusTotal</button>
+    <button onclick="openButtonData()" class="virus-total-button" style="position: fixed; bottom: 130px; right: 10px; background-color: #3498db; color: #fff; padding: 10px; border-radius: 6px; cursor: pointer; font-size: 14px;">Sayfadaki Bağlantılar</button>	<div id="uygulama-sayisi" style="position: fixed; bottom: 10px; right: 10px; background-color: #007bff; color: #fff; padding: 10px; border-radius: 6px;"></div>
+	
+	<canvas id="canvas">Canvas is not supported in your browser.</canvas>
+    <canvas id="canvas2">Canvas is not supported in your browser.</canvas>
+	
+	
+	<script>
+	
+	
+	var canvas = document.getElementById( 'canvas' ),
+		ctx = canvas.getContext( '2d' ),
+    canvas2 = document.getElementById( 'canvas2' ),
+    ctx2 = canvas2.getContext( '2d' ),
+		// full screen dimensions
+		cw = window.innerWidth,
+		ch = window.innerHeight,
+    charArr = ['a','b','c','d','e','f','g','h','i','j','k','l','m','n','o','p','q','r','s','t','u','v','w','x','y','z'],
+    maxCharCount = 100,
+    fallingCharArr = [],
+    fontSize = 10,
+    maxColums = cw/(fontSize);
+    canvas.width = canvas2.width = cw;
+    canvas.height = canvas2.height = ch;
+
+
+    function randomInt( min, max ) {
+    	return Math.floor(Math.random() * ( max - min ) + min);
+    }
+
+    function randomFloat( min, max ) {
+    	return Math.random() * ( max - min ) + min;
+    }
+
+    function Point(x,y)
+    {
+      this.x = x;
+      this.y = y;
+    }
+
+    Point.prototype.draw = function(ctx){
+
+      this.value = charArr[randomInt(0,charArr.length-1)].toUpperCase();
+      this.speed = randomFloat(1,5);
+
+
+      ctx2.fillStyle = "rgba(255,255,255,0.8)";
+      ctx2.font = fontSize+"px san-serif";
+      ctx2.fillText(this.value,this.x,this.y);
+
+        ctx.fillStyle = "#0F0";
+        ctx.font = fontSize+"px san-serif";
+        ctx.fillText(this.value,this.x,this.y);
+
+
+
+        this.y += this.speed;
+        if(this.y > ch)
+        {
+          this.y = randomFloat(-100,0);
+          this.speed = randomFloat(2,5);
+        }
+    }
+
+    for(var i = 0; i < maxColums ; i++) {
+      fallingCharArr.push(new Point(i*fontSize,randomFloat(-500,0)));
+    }
+
+
+    var update = function()
+    {
+
+    ctx.fillStyle = "rgba(0,0,0,0.05)";
+    ctx.fillRect(0,0,cw,ch);
+
+    ctx2.clearRect(0,0,cw,ch);
+
+      var i = fallingCharArr.length;
+
+      while (i--) {
+        fallingCharArr[i].draw(ctx);
+        var v = fallingCharArr[i];
+      }
+
+      requestAnimationFrame(update);
+    }
+
+  update();
+	
+	
+	var smithStore = document.getElementById("smithStore");
+            var colors = ['#00ff00', '#33cc33', '#66cc66', '#99ff99']; // Daha fazla renk eklendi    
+            var currentColorIndex = 0;
+
+            function changeColor() {
+            smithStore.style.background = colors[currentColorIndex];
+            currentColorIndex = (currentColorIndex + 1) % colors.length;
+            setTimeout(changeColor, 1000); // Renk değişim süresi (ms cinsinden)
+            }
+
+            changeColor(); // İlk renk değişimi
+ function openButtonData() {
+            window.open('linkdata.html', '_blank');
+        }
+	
+	
+	
+	
+	// JSON dosyasından uygulama bilgilerini al
+fetch('uygulamalar.json')
+  .then(response => {
+    if (!response.ok) {
+      throw new Error('Market bilgileri alınamadı!');
+    }
+    return response.json();
+  })
+  .then(data => {
+    // Alınan verileri uygulamalar array'ine at
+    uygulamalar = data;
+
+    // Uygulama sayısını göster
+    displayApplicationCount();
+
+    // Uygulama kutularını oluştur
+    for (var i = 0; i < uygulamalar.length; i++) {
+      createAppElements(uygulamalar[i]);
+    }
+  })
+  .catch(error => console.error('JSON dosyası okunurken bir hata oluştu:', error));
+	
+		    // HTML içine uygulama bilgilerini ekleyen fonksiyon
+	      	function createAppElements(app) {
+			var container = document.getElementById("uygulama-container");
+
+			// Kart oluştur
+			var card = document.createElement("div");
+			card.className = "card";
+			container.appendChild(card);
+
+			// Başlık
+			var title = document.createElement("h3");
+			title.textContent = app.text;
+			card.appendChild(title);
+
+            // Logo Container
+            var logoContainer = document.createElement("div");
+            logoContainer.className = "logo-container";
+            card.appendChild(logoContainer);
+
+            // Logo
+            var logo = document.createElement("img");
+            logo.src = ""; // Leave it blank for now, we'll update it below
+            logo.alt = app.text + " logo";
+            logo.className = "logo";
+            logoContainer.appendChild(logo);
+
+			// Kategori
+			if (app.kategori) {
+				// Kategori
+				var category = document.createElement("p");
+				category.textContent = "" + app.kategori;
+				card.appendChild(category);
+			}
+			
+			 // Logo ekleme işlemi
+            fetch('https://autocomplete.clearbit.com/v1/companies/suggest?query=' + app.text)
+            .then(response => response.json())
+            .then(data => {
+            if (data.length > 0 && data[0].logo) {
+                var logoUrl = data[0].logo;
+
+                // Set the logo source
+                logo.src = logoUrl;
+            }
+            });
+			
+            // Container for Links
+            var linkContainer = document.createElement("div");
+            linkContainer.style.display = "flex";
+            linkContainer.style.justifyContent = "space-around";
+            card.appendChild(linkContainer);
+
+            // Download Link
+            var downloadLink = document.createElement("a");
+            downloadLink.href = app.downloadlink;
+            downloadLink.innerHTML = '<i class="fas fa-download"></i>'; // Use a download icon
+            linkContainer.appendChild(downloadLink);
+
+            // Main Link
+            var mainLink = document.createElement("a");
+            mainLink.href = app.mainlink;
+            mainLink.innerHTML = '<i class="fas fa-home"></i>'; // Use a home icon
+            linkContainer.appendChild(mainLink);
+            }
+
+            // Tüm uygulamaları döngü ile oluştur
+            for (var i = 0; i < uygulamalar.length; i++) {
+			createAppElements(uygulamalar[i]);
+            }
+		
+            // Uygulama sayısını gösteren fonksiyon
+            function displayApplicationCount() {
+			var countElement = document.getElementById("uygulama-sayisi");
+			countElement.textContent = "Toplam Program Sayısı: " + uygulamalar.length;
+            }
+
+            // Sayfa yüklendiğinde uygulama sayısını göster
+            displayApplicationCount();
+
+            function openVirusTotal() {
+            // Define the VirusTotal URL
+            var virusTotalURL = "https://www.virustotal.com/gui/";
+
+            // Open the URL in a new tab
+            window.open(virusTotalURL, "_blank");
+            }
+
+            // Uygulama filtreleme fonksiyonu
+            function filterApplications() {
+            var searchInput = document.getElementById("uygulama-search");
+            var filter = searchInput.value.toUpperCase();
+            var container = document.getElementById("uygulama-container");
+            var cards = container.getElementsByClassName("card");
+
+            for (var i = 0; i < cards.length; i++) {
+            var title = cards[i].getElementsByTagName("h3")[0];
+            var category = cards[i].getElementsByTagName("p")[0];
+            var shouldShowTitle = title.textContent.toUpperCase().indexOf(filter) > -1;
+            var shouldShowCategory = category && category.textContent.toUpperCase().indexOf(filter) > -1;
+
+            // Display the card if either the title or category matches the filter
+            cards[i].style.display = shouldShowTitle || shouldShowCategory ? "" : "none";
+            }
+            }
+
+            
+
+
+
+
+
+	</script>
+
+	</body>
+	</html>
