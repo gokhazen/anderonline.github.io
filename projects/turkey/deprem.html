@@ -1,0 +1,348 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Deprem Bilgileri</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            margin: 0;
+            padding: 20px;
+        }
+
+        h1 {
+            color: #333;
+        }
+
+        .section {
+            float: left;
+            width: 25%;
+            margin: 0 1%;
+            background-color: #fff;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            margin-bottom: 20px;
+        }
+
+        h2 {
+            color: #333;
+            border-bottom: 2px solid #ddd;
+            padding: 10px;
+            margin: 0;
+        }
+
+        .earthquake-info {
+            padding: 15px;
+        }
+
+        a {
+            color: #3498db;
+            text-decoration: none;
+        }
+
+        a:hover {
+            text-decoration: underline;
+        }
+
+        p {
+            margin: 0;
+            color: #555;
+        }
+
+        .source-link {
+            margin-top: 10px;
+            padding: 10px;
+            background-color: #f4f4f4;
+            border-top: 1px solid #ddd;
+        }
+		
+		.section {
+    float: left;
+    width: 23%; /* Adjust the width to your preference */
+    margin: 0 1%;
+    background-color: #fff;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    margin-bottom: 20px;
+}
+
+.clearfix::after {
+    content: "";
+    display: table;
+    clear: both;
+}
+
+ .source-link {
+            margin-top: 10px;
+            padding: 10px;
+            background-color: #f4f4f4;
+            border-top: 1px solid #ddd;
+        }
+
+        .button-container {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin-top: 20px;
+        }
+
+        .redirect-button {
+            padding: 10px;
+            font-size: 16px;
+            background-color: #3498db;
+            color: #fff;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+            margin: 0 10px;
+        }
+
+        .redirect-button:hover {
+            background-color: #2980b9;
+        }
+
+
+.latest-earthquakes {
+            background-color: #3498db;
+            color: #fff;
+            padding: 15px;
+            border-radius: 8px 8px 0 0;
+        }
+
+        .latest-earthquakes p {
+            margin: 0;
+        }
+
+        .latest-earthquakes .quake-details {
+            margin-top: 10px;
+        }
+
+#map {
+            height: 300px;
+            border-radius: 0 0 8px 8px;
+        }
+
+
+    </style>
+</head>
+<body class="clearfix">
+
+    <h1>Anlık Deprem Bilgi Sistemi</h1>
+    
+	 <div class="">
+        <div class="card">
+            <div class="latest-earthquakes card-header">
+                <h2>En Son Depremler</h2>
+            </div>
+            <div id="latestEarthquakes" class="quake-details card-content">
+                <!-- The latest earthquakes will be displayed here -->
+            </div>
+        </div>
+    </div>
+	
+	
+	 <div class="button-container">
+        <button onclick="location.href='http://udim.koeri.boun.edu.tr/zeqmap/xmlt/202312.xml'" class="redirect-button">Aralık Bütün Depremler</button>
+        <button onclick="location.href='https://deprem.afad.gov.tr/apiv2/event/filter?start=2023-12-01%2006:00:00&end=2023-12-31%2010:00:00&limit=200000&offset=3&orderby=timedesc'" class="redirect-button">AFAD Aralık Depremler</button>
+        <button onclick="location.href='https://api.hknsoft.com/earthquake/v1/last24hours'" class="redirect-button">Son 24 Saat HKNSOFT</button>
+        <button onclick="location.href='https://github.com/orhanayd/kandilli-rasathanesi-api'" class="redirect-button">ORHANAYD API</button>
+    </div>
+	
+    <div class="section">
+        <h2><a href="https://hasanadiguzel.com.tr" target="_blank">Hasan Verileri</a></h2>
+        <div id="depremBilgisiHasanAdiguzel">
+            <!-- Buraya Hasan Adiguzel API ile JavaScript ile doldurulacak -->
+        </div>
+        <div id="hasanAdiguzelLink" style="margin-top: 10px;">
+            <p><a href="https://hasanadiguzel.com.tr" target="_blank">Verilerin Kaynağı: hasanadiguzel.com.tr</a></p>
+        </div>
+    </div>
+
+    <div class="section">
+        <h2><a href="https://api.orhanaydogdu.com.tr/deprem/kandilli/live" target="_blank">Kandilli Verileri</a></h2>
+        <div id="depremBilgisiKandilli">
+            <!-- Buraya Kandilli API ile JavaScript ile doldurulacak -->
+        </div>
+        <div id="kandilliLink" style="margin-top: 10px;">
+            <p><a href="https://api.orhanaydogdu.com.tr/deprem/kandilli/live" target="_blank">Verilerin Kaynağı: api.orhanaydogdu.com.tr</a></p>
+        </div>
+    </div>
+
+    <div class="section">
+        <h2><a href="https://www.mertsenturk.net/deprem/" target="_blank">Mert Verileri</a></h2>
+        <div id="depremBilgisiMertSenturk">
+            <!-- Buraya Mert Senturk API ile JavaScript ile doldurulacak -->
+        </div>
+        <div id="mertSenturkLink" style="margin-top: 10px;">
+            <p><a href="https://www.mertsenturk.net/deprem/" target="_blank">Verilerin Kaynağı: mertsenturk.net</a></p>
+        </div>
+    </div>
+
+    <div class="section">
+        <h2><a href="https://deprem.afad.gov.tr" target="_blank">AFAD Verileri</a></h2>
+        <div id="depremBilgisiAFAD">
+            <!-- Buraya AFAD API ile JavaScript ile doldurulacak -->
+        </div>
+        <div id="afadLink" style="margin-top: 10px;">
+            <p><a href="https://deprem.afad.gov.tr" target="_blank">Verilerin Kaynağı: deprem.afad.gov.tr</a></p>
+        </div>
+    </div>
+
+
+
+
+    <script>
+        const hasanAdiguzelApiUrl = "https://hasanadiguzel.com.tr/api/sondepremler";
+        const mertSenturkApiUrl = "https://www.mertsenturk.net/deprem/";
+        const afadApiUrl = "https://deprem.afad.gov.tr/apiv2/event/filter?minlat=39&maxlat=41&minlon=32&maxlon=34&start=2010-09-14 10:00:00&end=2021-09-16 10:00:00&format=kml";
+        const kandilliApiUrl = "https://api.orhanaydogdu.com.tr/deprem/kandilli/live";
+
+        const standardizeData = (rawData) => {
+            // Your standardization logic here
+            return {
+                date: rawData.tarih || rawData.date,
+                time: rawData.saat || rawData.date,
+                magnitude: rawData.ml || rawData.mag,
+                location: rawData.yer || rawData.title,
+                latitude: rawData.enlem_n || rawData.latitude || rawData.geojson.coordinates[1],
+                longitude: rawData.boylam_e || rawData.longitude || rawData.geojson.coordinates[0],
+                depth: rawData.derinlik_km || rawData.depth || "N/A",
+                solutionQuality: rawData.cozum_niteligi || rawData.location_tz,
+                md: rawData.md || "N/A",
+                mw: rawData.mw || "N/A"
+            };
+        };
+
+        const fetchDataAndDisplay = (apiUrl, containerId, linkContainerId, dataProcessor) => {
+            fetch(apiUrl)
+                .then(response => response.json())
+                .then(data => {
+                    const earthquakes = data.data ? data.data.slice(0, 10) : data.result.slice(0, 10);
+
+                    document.getElementById(containerId).innerHTML = earthquakes.map(earthquake => {
+                        const standardizedData = standardizeData(earthquake);
+                        return `
+                            <div style="border: 1px solid #ccc; padding: 10px; margin-bottom: 10px;">
+                                <p><strong>Tarih:</strong> ${standardizedData.date}</p>
+                                <p><strong>Saat:</strong> ${standardizedData.time}</p>
+                                <p><strong>Şiddet:</strong> ${standardizedData.magnitude}</p>
+                                <p><strong>Yer:</strong> ${standardizedData.location}</p>
+                                <p><strong>Enlem:</strong> ${standardizedData.latitude}</p>
+                                <p><strong>Boylam:</strong> ${standardizedData.longitude}</p>
+                                <p><strong>Derinlik:</strong> ${standardizedData.depth} km</p>
+                                <p><strong>Çözüm Niteliği:</strong> ${standardizedData.solutionQuality}</p>
+                                <p><strong>MD (Yüzey Dalga Büyüklüğü):</strong> ${standardizedData.md}</p>
+                                <p><strong>MW (Moment Büyüklüğü):</strong> ${standardizedData.mw}</p>
+                            </div>
+                        `;
+                    }).join('');
+
+                    // Display link to the source site
+                    document.getElementById(linkContainerId).innerHTML = `
+                        <p><a href="${apiUrl}" target="_blank">Verilerin Kaynağı: ${apiUrl}</a></p>
+                    `;
+                })
+                .catch(error => {
+                    console.error('Veri çekme hatası:', error);
+                    document.getElementById(containerId).innerHTML = "Deprem bilgileri alınamadı.";
+                    document.getElementById(linkContainerId).innerHTML = "Veri kaynağına ulaşılamadı.";
+                });
+        };
+
+        fetchDataAndDisplay(hasanAdiguzelApiUrl, "depremBilgisiHasanAdiguzel", "hasanAdiguzelLink", standardizeData);
+        fetchDataAndDisplay(mertSenturkApiUrl, "depremBilgisiMertSenturk", "mertSenturkLink", standardizeData);
+        fetchDataAndDisplay(afadApiUrl, "depremBilgisiAFAD", "afadLink", standardizeData);
+        fetchDataAndDisplay(kandilliApiUrl, "depremBilgisiKandilli", "kandilliLink", standardizeData);
+   
+
+
+
+const allSources = [
+    hasanAdiguzelApiUrl,
+    mertSenturkApiUrl,
+    afadApiUrl,
+    kandilliApiUrl
+    // Add more sources if needed
+];
+
+const fetchLatestEarthquakes = () => {
+    const promises = allSources.map(source => {
+        return fetch(source)
+            .then(response => response.json())
+            .then(data => {
+                const earthquakes = data.data ? data.data.slice(0, 1) : data.result.slice(0, 1);
+                return earthquakes.map(earthquake => ({
+                    ...standardizeData(earthquake),
+                    source: source,  // Add the source information to each earthquake
+                }));
+            })
+            .catch(error => {
+                console.error(`Veri çekme hatası (${source}):`, error);
+                return [];
+            });
+    });
+
+    return Promise.all(promises)
+        .then(results => [].concat(...results))
+        .catch(error => {
+            console.error('Bütün kaynaklardan veri çekme hatası:', error);
+            return [];
+        });
+};
+
+const displayLatestEarthquakes = () => {
+    fetchLatestEarthquakes()
+        .then(earthquakes => {
+            const container = document.getElementById('latestEarthquakes');
+            container.innerHTML = earthquakes.map(earthquake => {
+                return `
+                    <div style="border: 1px solid #ccc; padding: 10px; margin-bottom: 10px;">
+                        <p><strong>Kaynak:</strong> ${getEarthquakeSource(earthquake)}</p>
+                        <p><strong>Tarih:</strong> ${earthquake.date}</p>
+                        <p><strong>Saat:</strong> ${earthquake.time}</p>
+                        <p><strong>Şiddet:</strong> ${earthquake.magnitude}</p>
+                        <p><strong>Yer:</strong> ${earthquake.location}</p>
+                        <p><strong>Enlem:</strong> ${earthquake.latitude}</p>
+                        <p><strong>Boylam:</strong> ${earthquake.longitude}</p>
+                        <p><strong>Derinlik:</strong> ${earthquake.depth} km</p>
+                        <p><strong>Çözüm Niteliği:</strong> ${earthquake.solutionQuality}</p>
+                        <p><strong>MD (Yüzey Dalga Büyüklüğü):</strong> ${earthquake.md}</p>
+                        <p><strong>MW (Moment Büyüklüğü):</strong> ${earthquake.mw}</p>
+                    </div>
+                `;
+            }).join('');
+        });
+};
+
+
+
+
+
+const getEarthquakeSource = (earthquake) => {
+    if (earthquake.source === hasanAdiguzelApiUrl) {
+        return 'Hasan Adiguzel';
+    } else if (earthquake.source === mertSenturkApiUrl) {
+        return 'Mert Senturk';
+    } else if (earthquake.source === afadApiUrl) {
+        return 'AFAD';
+    } else if (earthquake.source === kandilliApiUrl) {
+        return 'Kandilli';
+    } else {
+        return 'Bilinmeyen Kaynak';
+    }
+};
+
+// Call the function to display latest earthquakes
+displayLatestEarthquakes();
+
+
+
+
+   </script>
+
+</body>
+</html>
