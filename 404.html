@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>404 Not Found</title>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            text-align: center;
+            background-color: #000; /* Arka plan rengini siyah yapar */
+            margin: 0;
+            padding: 0;
+            color: #555;
+            overflow: hidden; /* Animasyon için overflow özelliğini ekler */
+        }
+
+        .container {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+        }
+
+        .error-code {
+            font-size: 150px;
+            font-weight: bold;
+            color: #e74c3c;
+        }
+
+        .error-message {
+            font-size: 36px;
+            margin-top: 10px;
+            color: #fff; /* Hata mesajı rengini beyaz yapar */
+        }
+
+        .description {
+            font-size: 18px;
+            margin-top: 10px;
+            color: #777;
+        }
+
+        .link-container {
+            margin-top: 30px;
+        }
+
+        .link {
+            display: inline-block;
+            margin: 0 15px;
+            padding: 10px 20px;
+            background-color: #3498db;
+            color: #fff;
+            text-decoration: none;
+            border-radius: 5px;
+            transition: background-color 0.3s;
+            cursor: pointer;
+        }
+
+        .link:hover {
+            background-color: #2980b9;
+        }
+
+        .image-container {
+            margin-top: 50px;
+        }
+
+        .astronaut-image {
+            max-width: 100%;
+            height: auto;
+            animation: float 3s ease-in-out infinite;
+        }
+
+        .additional-content {
+            margin-top: 50px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+        }
+
+        .icon {
+            font-size: 50px;
+            margin-bottom: 10px;
+            color: #e74c3c;
+        }
+
+        .message {
+            font-size: 24px;
+            color: #fff; /* Mesaj rengini beyaz yapar */
+        }
+
+        .footer {
+            margin-top: 30px;
+            color: #777;
+        }
+
+        /* Yıldız animasyonunu ekler */
+        .stars {
+            position: absolute;
+            width: 1px;
+            height: 1px;
+            background: #fff;
+            animation: animateStars 10s linear infinite;
+        }
+
+        /* Yıldız animasyonunu tanımlar */
+        @keyframes animateStars {
+            from {
+                transform: translateY(0) rotate(0deg);
+            }
+            to {
+                transform: translateY(-1000px) rotate(360deg);
+            }
+        }
+
+        /* Rastgele konumlandırılmış yıldızları ekler */
+        .stars::before {
+            content: ' ';
+            position: absolute;
+            top: calc(100vh * 1px);
+            left: calc(100vw * 1px);
+            width: 2px;
+            height: 2px;
+            background: #fff;
+            opacity: 0.8;
+            box-shadow: 
+                200px 200px #fff, 500px 100px #fff, 800px 300px #fff, 300px 700px #fff, 600px 800px #fff,
+                900px 600px #fff, 1200px 400px #fff, 1500px 900px #fff, 1800px 200px #fff, 2100px 700px #fff,
+                2400px 500px #fff, 2700px 300px #fff, 3000px 800px #fff, 3300px 600px #fff, 3600px 400px #fff;
+        }
+    </style>
+    <script>
+        function redirectToHomePage() {
+            // Ana sayfaya yönlendirme işlemi
+            window.location.href = "index.html";
+        }
+
+        function redirectToOtherPages() {
+            // Diğer sayfaları keşfet linkine yönlendirme işlemi
+            window.location.href = "projects.html";
+            // window.location.href = "digersayfalar_linki.html"; // Yönlendirme işlemi
+        }
+		
+		function redirectToPage() {
+            // Ana sayfaya yönlendirme işlemi
+            window.location.href = "https://mrander.online";
+        }
+    </script>
+</head>
+<body>
+    <div class="container">
+        <div class="error-code">404</div>
+        <div class="error-message">Sayfa Bulunamadı</div>
+        <div class="description">Aradığınız sayfa maalesef mevcut değil.</div>
+        
+        <div class="link-container">
+            <div class="link" onclick="redirectToHomePage()">Ana Sayfaya Dön</div>
+            <div class="link" onclick="redirectToOtherPages()">Projelerimi Keşfet</div>
+			<div class="link" onclick="redirectToPage()">mrander.online</div>  
+        </div>
+
+        <div class="image-container">
+            <img src="logophotos/astronaut.png" alt="Astronot" class="logophotos/astronaut-image">
+        </div>
+
+        <div class="additional-content">
+            <div class="message">Sanırım uzay boşluğunda kayboldunuz!</div>
+        </div>
+
+        <div class="footer">
+            made with love &lt;3 mrander
+        </div>
+
+        <!-- Yıldız animasyonunu ekler -->
+        <div class="stars"></div>
+    </div>
+</body>
+</html>
