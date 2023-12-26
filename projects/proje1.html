@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Rengi Öğren</title>
+</head>
+<body>
+
+    <input type="file" id="imageInput" accept="image/*">
+    <canvas id="colorCanvas" width="1" height="1" style="display: none;"></canvas>
+    <div id="selectedColor"></div>
+
+    <script>
+        document.getElementById('imageInput').addEventListener('change', function(event) {
+            var file = event.target.files[0];
+
+            if (file) {
+                var reader = new FileReader();
+
+                reader.onload = function(e) {
+                    var image = new Image();
+                    image.src = e.target.result;
+
+                    image.onload = function() {
+                        var canvas = document.getElementById('colorCanvas');
+                        var context = canvas.getContext('2d');
+
+                        // Resmi canvas'a çiz
+                        context.drawImage(image, 0, 0, 1, 1);
+
+                        // Canvas'tan piksel bilgisini al
+                        var pixelData = context.getImageData(0, 0, 1, 1).data;
+
+                        // Piksel bilgisi üzerinden rengi oluştur
+                        var selectedColor = 'rgb(' + pixelData[0] + ', ' + pixelData[1] + ', ' + pixelData[2] + ')';
+
+                        // Seçilen rengi göster
+                        document.getElementById('selectedColor').textContent = 'Seçilen Renk: ' + selectedColor;
+                    };
+                };
+
+                reader.readAsDataURL(file);
+            }
+        });
+    </script>
+
+</body>
+</html>
