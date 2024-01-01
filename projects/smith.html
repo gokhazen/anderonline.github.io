@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Smith Yönlendirici | Ekran boyutuna göre uygun sayfaya yönlendirme</title>
+	<link rel="icon" href="../logophotos/favicon.ico" type="image/x-icon">
+    <link rel="shortcut icon" href="logophotos/favicon.ico" type="image/x-icon">
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Proje Listesi</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+
+</head>
+<body>
+    <script>
+        // Tarayıcı genişliğini kontrol et
+        if (window.innerWidth >= 800) {
+            // 600 pikselden büyükse yönlendir
+            window.location.href = "bigsmith.html";
+        } else {
+            // Küçükse başka bir sayfaya yönlendir
+            window.location.href = "littlesmith.html";
+        }
+    </script>
+</body>
+</html>
