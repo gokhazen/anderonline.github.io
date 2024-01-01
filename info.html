@@ -1,0 +1,476 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Özgeçmiş</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: #1a1a1a;
+            color: #fff;
+            margin: 0;
+            align-items: center;
+            justify-content: center;
+            padding: 0;
+            box-sizing: border-box;
+			animation: gradientAnimation 10s infinite;
+        }
+        header {
+            background-color: #262626;
+            text-align: center;
+            padding: 2em;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-wrap: wrap;
+        }
+        header img {
+            border-radius: 8px; /* Dikdörtgen yapmak için border-radius ekledik */
+            max-width: 500px; /* İstediğiniz genişliği ayarlayabilirsiniz */
+            height: auto;
+            margin-right: 20px;
+        }
+        header h1 {
+            margin-top: 10px;
+            font-size: 3em; /* İstediğiniz boyutu ayarlayabilirsiniz */
+        }
+        header h2 {
+            font-size: 2em;
+            margin-bottom: 10px;
+        }
+        section {
+            max-width: 800px;
+            margin: 20px auto;
+            padding: 10px;
+            background-color: #262626;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.4);
+            border-radius: 8px;
+            overflow: hidden;
+        }
+        h1, h2 {
+            color: #fff;
+        }
+        p {
+            line-height: 1.6;
+        }
+        .contact-info {
+    background-color: #2C3E50; /* Daha ciddi bir renk tonu önerisi */
+    border-radius: 8px;
+    color: #fff; /* Yazı rengini beyaz olarak ayarladık */
+}
+        .education, .experience, .skills, .note {
+            margin-bottom: 20px;
+        }
+        ul {
+            list-style-type: none;
+            padding: 0;
+        }
+        li {
+            margin-bottom: 5px;
+        }
+        .animated {
+            animation-duration: 1s;
+            animation-fill-mode: both;
+        }
+        @keyframes fadeInUp {
+            0% {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            100% {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        .fadeInUp {
+            animation-name: fadeInUp;
+        }
+        .icon-container {
+            display: flex;
+            align-items: center;
+            margin-top: 10px;
+        }
+        .icon {
+            font-size: 24px;
+            margin-right: 10px;
+            color: #fff;
+            cursor: pointer;
+            transition: color 0.3s ease;
+        }
+        .icon:hover {
+            color: #4CAF50;
+        }
+        .skill-item {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: -10px;
+        }
+        .progress-container {
+            display: flex;
+            align-items: center;
+            width: 350px; /* İstediğiniz genişlik */
+            margin-left: 10px;
+        }
+        .progress {
+            background-color: #404040;
+            height: 15px;
+            border-radius: 5px;
+            overflow: hidden;
+            flex: 1;
+        }
+        .progress-bar {
+            height: 100%;
+            width: 0;
+            background-color: #4CAF50;
+            border-radius: 5px;
+            transition: width 1s ease;
+        }
+		
+		
+		
+		
+		
+		@media only screen and (max-width: 600px) {
+    header {
+            background-color: #262626;
+            text-align: center;
+            padding: 2em;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-wrap: wrap;
+        }
+        header img {
+            border-radius: 8px; /* Dikdörtgen yapmak için border-radius ekledik */
+            max-width: 300px; /* İstediğiniz genişliği ayarlayabilirsiniz */
+            height: auto;
+            margin-right: 0px;
+        }
+        header h1 {
+            margin-top: 10px;
+            font-size: 3em; /* İstediğiniz boyutu ayarlayabilirsiniz */
+        }
+        header h2 {
+            font-size: 2em;
+            margin-bottom: 10px;
+        }
+        section {
+		width: 90%;
+            max-width: 800px;
+            margin: 20px auto;
+            padding: 10px;
+            background-color: #262626;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.4);
+            border-radius: 10px;
+            overflow: hidden;
+			color: #fff;
+        }
+        h1, h2 {
+            color: #fff;
+        }
+        p {
+            line-height: 1.;
+        }
+        .contact-info {
+		width: 80%;
+    background-color: #2C3E50; /* Daha ciddi bir renk tonu önerisi */
+    border-radius: 10px;
+    color: #fff; /* Yazı rengini beyaz olarak ayarladık */
+}
+        .education, .experience, .skills, .note {
+            margin-bottom: 10px;
+        }
+        ul {
+            list-style-type: none;
+            padding: 0;
+        }
+        li {
+            margin-bottom: 5px;
+        }
+        .animated {
+            animation-duration: 1s;
+            animation-fill-mode: both;
+        }
+        @keyframes fadeInUp {
+            0% {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            100% {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        .fadeInUp {
+            animation-name: fadeInUp;
+        }
+        .icon-container {
+            display: flex;
+            align-items: center;
+            margin-top: 10px;
+        }
+        .icon {
+            font-size: 24px;
+            margin-right: 10px;
+            color: #fff;
+            cursor: pointer;
+            transition: color 0.3s ease;
+        }
+        .icon:hover {
+            color: #4CAF50;
+        }
+        .skill-item {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: -10px;
+        }
+        .progress-container {
+            display: flex;
+            align-items: center;
+            width: 200px; /* İstediğiniz genişlik */
+            margin-left: 10px;
+        }
+        .progress {
+            background-color: #404040;
+            height: 15px;
+            border-radius: 5px;
+            overflow: hidden;
+            flex: 1;
+        }
+        .progress-bar {
+            height: 100%;
+            width: 0;
+            background-color: #4CAF50;
+            border-radius: 5px;
+            transition: width 1s ease;
+        }
+}
+
+
+        @keyframes gradientAnimation {
+            0% {
+                background-position: 0% 50%;
+            }
+            50% {
+                background-position: 100% 50%;
+            }
+            100% {
+                background-position: 0% 50%;
+            }
+        }
+
+        body {
+            background: linear-gradient(45deg, #303030, #1a1a1a, #000000); /* Karanlık tonlarda renk geçişli gradyan arka plan */
+            background-size: 200% 200%;
+        }
+
+.container {
+  position: relative;
+}
+
+.menu-btn {
+  cursor: pointer;
+  padding: 10px;
+  display: flex;
+  flex-direction: column;
+  position: fixed;
+  top: 50%;
+  right: 10px;
+  transform: translateY(-50%);
+  z-index: 2;
+}
+
+.menu-btn span {
+  height: 3px;
+  width: 25px;
+  background-color: #333;
+  margin: 4px 0;
+  transition: background-color 0.3s ease;
+}
+
+.menu-btn:hover span {
+  background-color: #555;
+}
+
+.menu {
+  position: fixed;
+  top: 0;
+  right: 0;
+  background-color: #333;
+  width: 0;
+  height: 100vh;
+  overflow: hidden;
+  transition: width 0.3s ease;
+  z-index: 1;
+}
+
+.menu-content {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100%;
+}
+
+.menu ul {
+  padding: 0;
+  margin: 0;
+  list-style: none;
+}
+
+.menu li {
+  padding: 15px;
+}
+
+.menu a {
+  text-decoration: none;
+  color: #fff;
+  font-size: 14px;
+  display: block;
+  transition: color 0.3s ease;
+}
+
+.menu a:hover {
+  color: #f5f5f5;
+}
+
+.menu-btn.active + .menu {
+  width: 120px;
+}
+
+@media only screen and (max-width: 600px) {
+    header {
+        background-color: #262626;
+        text-align: center;
+        padding: 2em;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-wrap: wrap;
+    }
+    header img {
+        border-radius: 8px;
+        max-width: 300px;
+        height: auto;
+        margin-right: 0px;
+    }
+    header h1 {
+        margin-top: 10px;
+        font-size: 3em;
+        margin-bottom: 3px; /* Adjust the margin-bottom to bring them even closer */
+    }
+    header h2 {
+        font-size: 1.5em;
+        margin-bottom: 10px;
+    }
+    // Rest of the styles...
+}
+
+    </style>
+</head>
+<body>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <header class="animated fadeInUp">
+        <img src="logophotos/me.jpg" alt="Your Name">
+        <h1>Gökhan Özen</h1>
+        <h2>mrander</h2>
+    </header>
+    <section class="animated fadeInUp contact-info">
+    <h2>İletişim Bilgileri</h2>
+    <p>Kişisel: <a href="mailto:yemreshan4141@hotmail.com">yemreshan4141@hotmail.com</a></p>
+    <p>Profesyonel: <a href="mailto:gokhanozen@mrander.online">gokhanozen@mrander.online</a></p>
+</section>
+    <section class="animated fadeInUp education">
+        <h2>Eğitim</h2>
+        <ul>
+            <li>Anlık olarak bilgisayar mühendisliği kazanmak adına üniversite sınavına çalışmaktayım. Hedefim Berlin Teknik Üniversitesi.</li>
+        </ul>
+    </section>
+    <section class="animated fadeInUp experience">
+        <h2>Notlarım</h2>
+        <ul>
+            <li>- Kendi sitem olan |mrander.online| baş geliştiricisiyim.</li>
+            <li>- İhtiyaçlarıma göre python veya html üzerinden gerekli projeleri hazırlıyorum.</li> 
+			<li>- İnsanların kullanımı adına sitemde yayınlıyorum.</li>
+        </ul>
+    </section>
+    <section class="animated fadeInUp skills">
+        <h2>Beceri Seviyelerim</h2>
+        <div class="skill-item">
+            <p>HTML</p>
+            <div class="progress-container">
+                <div class="progress">
+                    <div class="progress-bar" style="width: 80%;"></div>
+                </div>
+            </div>
+        </div>
+        <div class="skill-item">
+            <p>CSS</p>
+            <div class="progress-container">
+                <div class="progress">
+                    <div class="progress-bar" style="width: 75%;"></div>
+                </div>
+            </div>
+        </div>
+        <div class="skill-item">
+            <p>JavaScript</p>
+            <div class="progress-container">
+                <div class="progress">
+                    <div class="progress-bar" style="width: 70%;"></div>
+                </div>
+            </div>
+        </div>
+        <div class="skill-item">
+            <p>Web Tasarımı</p>
+            <div class="progress-container">
+                <div class="progress">
+                    <div class="progress-bar" style="width: 85%;"></div>
+                </div>
+            </div>
+        </div>
+        <div class="skill-item">
+            <p>Responsive Tasarım</p>
+            <div class="progress-container">
+                <div class="progress">
+                    <div class="progress-bar" style="width: 80%;"></div>
+                </div>
+            </div>
+        </div>
+        <div class="icon-container">
+            <span class="icon">&#128187;</span>
+            <span class="icon">&#128218;</span>
+            <span class="icon">&#128295;</span>
+            <span class="icon">&#128640;</span>
+        </div>
+    </section>
+    <section class="animated fadeInUp note">
+        <h2>Kendimden Bir Not</h2>
+        <p>Başlangıç cümlemi şu şekilde ifade etmek isterim: Çocukluğumdan bu yana bilgiye duyduğum merak beni sürekli yeni şeyler öğrenmeye yönlendirdi. Her zaman, keşfetmek istediğim yeni bir konuyu merakla karşılar, bu alana odaklanırım. Bu özellik, bugün bu satırları yazmama vesile oldu. Şu anda, örneğin, bir internet sitesi nasıl geliştirilir sorusuna odaklanarak, bu alanda bilgi edinmeye heveslendim. Bu kısa süre içinde giriştiğim büyük öğrenme projelerinden biri olarak karşıma çıktı. Kendi potansiyelime inanıyorum; bu heves ve azim, beni başarılı bir noktaya taşıyacak. İlerleyen süreçte, insanlık adına anlamlı ve faydalı projelere imza atma arzumu bu hevesle birleştirerek güçlendirmeyi hedefliyorum. Türkiye'nin Kocaeli şehrinde doğup büyüdüm. Bilgisayar dünyasına erken yaşta adım atmam, beni TÜBİTAK ve Teknofest gibi ülkemizin büyük yarışmalarına katılma fırsatıyla buluşturdu. Geliştirdiğim ve fikir aşamasına getirdiğim birçok projede takdir topladım. Her zaman, insanların iyiliğini düşünen bir birey oldum ve bazen kendi düşüncelerimden öte, insanların ihtiyaçlarına odaklandım. Kişisel gelişimlerimi portföyüme ekleyerek bu yolda elde ettiğim başarıları paylaşmayı amaçlıyorum. Şu an için söyleyebileceğim en önemli nokta, gelecekte daha pek çok başarı ve etkileşimde bulunmak için heyecan duyduğum.</p>
+    </section>
+	
+	<div class="menu-btn">
+    <span></span>
+    <span></span>
+    <span></span>
+  </div>
+  <nav class="menu">
+    <div class="menu-content">
+      <ul>
+        <li><a href="index.html">Anasayfa</a></li>
+        <li><a href="projects.html">Kütüphane</a></li>
+      </ul>
+    </div>
+  </nav>
+  
+  
+	 <script>
+	document.querySelector('.menu-btn').addEventListener('click', function () {
+  this.classList.toggle('active');
+});
+	
+	 </script>
+</body>
+</html>
