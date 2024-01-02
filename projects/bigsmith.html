@@ -102,10 +102,9 @@
     background-color: #333; /* Darkened hover background color */
 }
 
-.icon {
-    margin-bottom: 3px;
-    font-size: 18px;
-}
+
+
+
 
 #clock {
     color: white;
@@ -132,29 +131,52 @@
             }
         }
 		
-		  button {
-            background-color: #4CAF50;
-            color: white;
-            text-align: center;
-            text-decoration: none;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            font-size: 16px;
-            margin: 10px;
-            cursor: pointer;
-            border-radius: 5px;
-            border: none;
-            padding: 10px;
-        }
+		.button-container {
+        display: flex;
+        flex-direction: column; /* Stack buttons vertically */
+        position: relative; /* Set initial position to relative */
+    }
 
-        button:hover {
-            background-color: #45a049;
-        }
+    .button {
+        cursor: move;
+        user-select: none; /* Disable text selection during drag */
+        position: relative; /* Set initial position to relative */
+        transition: transform 0.1s ease;
+    background-color: transparent; /* Transparent background */
+    color: white;
+    text-align: center;
+    text-decoration: none;
+    display: flex; /* Display as flex to align items */
+    flex-direction: column; /* Stack items vertically */
+    align-items: center; /* Center items vertically */
+    justify-content: center; /* Center items horizontally */
+    font-size: 14px;
+    width: 100px; /* Set a specific width for the buttons */
+    height: 100px; /* Set a specific height for the buttons */
+    margin: 5px;
+    cursor: pointer;
+    border: none;
+    padding: 5px;
+    transition: background-color 0.3s ease;
+    position: relative;
+}
 
-        .text {
-            font-size: 14px;
-        }
+.text {
+    font-size: 10px;
+    white-space: pre-wrap; /* Allow text to wrap onto the next line */
+    overflow-wrap: break-word; /* Break the word if it exceeds available space */
+}
+
+.icon {
+    margin-bottom: 3px;
+    font-size: 36px;
+}
+
+button:hover {
+    background-color: #0078d4; /* Windows blue color on hover */
+}
+
+
 		
 		#calculator iframe {
     width: 100%;
@@ -165,56 +187,74 @@
 		
 		
 		#start-menu {
-    width: 250px;
-    background-color: #1c1c1c;
+    width: 350px;
+    background-color: #2c3e50;
     position: absolute;
-    bottom: 40px;
-    left: 0;
+    bottom: 50px;
+    left: 185px;
+    transform: translateX(-50%);
     display: none;
     z-index: 2;
-    border: 1px solid #333;
-    box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.3);
-    padding: 10px;
-    text-align: left; /* Adjusted for Windows style */
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
 }
 
 .start-header {
     display: flex;
     align-items: center;
     justify-content: space-between;
-    padding-bottom: 10px; /* Added for spacing */
-    border-bottom: 1px solid #333; /* Added for separation */
+    padding: 20px;
+    border-bottom: 2px solid #34495e;
 }
 
 .logo img {
-    width: 30px;
+    width: 60px;
 }
 
 .user-profile img {
-    width: 40px; /* Slightly increased size for Windows style */
-    height: 40px;
+    width: 70px;
+    height: 70px;
     border-radius: 50%;
-    margin-right: 10px;
+    margin-right: 20px;
 }
 
 .user-profile .username {
     color: white;
-    font-size: 16px; /* Slightly increased font size for Windows style */
+    font-size: 20px;
+}
+
+.start-body {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 20px;
 }
 
 .start-body button {
-    margin-top: 5px;
     width: 100%;
-    padding: 10px;
-    background-color: #333;
+    padding: 16px;
+    background-color: #3498db;
     border: none;
     color: white;
     text-align: left;
+    margin-bottom: 12px;
+    border-radius: 8px;
+    transition: background-color 0.3s ease;
+}
+
+.start-body button:last-child {
+    margin-bottom: 0;
 }
 
 .start-body button:hover {
-    background-color: #555;
+    background-color: #2980b9;
 }
+
+
+
+
+
 
 
         #start-button {
@@ -245,15 +285,39 @@
     padding-bottom: 8px; /* Adjust padding for better spacing within list items */
 }
 		
+		
+		
+		@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+
+@keyframes fadeOut {
+    from {
+        opacity: 1;
+    }
+    to {
+        opacity: 0;
+        display: none;
+    }
+}
+		
+		
     </style>
 </head>
 <body>
 
-<button onclick="openFile1()"> <i class="fas fa-desktop icon"></i><span class="text" >Anasayfa</span></button>
-<button onclick="openFile2()"><i class="fas fa-folder icon"></i><span class="text">Kütüphane</span></button>
-<button onclick="openCalculator()"><i class="fas fa-calculator icon"></i><span class="text">Hesap Makinesi</span></button>
-<button onclick="toggleWindow('smith')"><i class="fas fa-download icon"></i><span class="text">Smith ISO</span></button>
-<button onclick="openFile3()"><i class="fas fa-example icon"></i><span class="text">Mobil Site</span></button>
+<div class="button-container">
+    <button class="button" onclick="openFile1()"> <i class="fas fa-desktop icon"></i><span class="text">Anasayfa</span></button>
+    <button class="button" onclick="openFile2()"><i class="fas fa-folder icon"></i><span class="text">Kütüphane</span></button>
+    <button class="button" onclick="openCalculator()"><i class="fas fa-calculator icon"></i><span class="text">Hesap Makinesi</span></button>
+    <button class="button" onclick="toggleWindow('smith')"><i class="fas fa-download icon"></i><span class="text">Smith ISO</span></button>
+    <button class="button" onclick="openFile3()"><i class="fas fa-example icon"></i><span class="text">Mobil Site</span></button>
+</div>
 
 
 <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/js/all.min.js"></script>
@@ -564,6 +628,76 @@ notifications.push('Bütün haklar saklıdır!');
 notifications.push('Kendi adınıza kullanmadan önce izin alınız.');
 // Add more initial notifications as needed
 
+	
+	function toggleStartMenu() {
+    var startMenu = document.getElementById('start-menu');
+    
+    // Check if the start menu is hidden
+    if (startMenu.style.display === 'none' || startMenu.style.display === '') {
+        // Apply fade-in animation
+        startMenu.style.opacity = '0';
+        startMenu.style.display = 'block';
+        startMenu.style.animation = 'fadeIn 0.1s ease-in';
+        setTimeout(function () {
+            startMenu.style.opacity = '1';
+        }, 0);
+    } else {
+        // Apply fade-out animation
+        startMenu.style.animation = 'fadeOut 0.1s ease-out';
+        setTimeout(function () {
+            startMenu.style.opacity = '0'; // Set opacity to 0 before changing display
+        }, 100); // Adjust the timing if needed
+        setTimeout(function () {
+            startMenu.style.display = 'none';
+            startMenu.style.animation = '';
+            startMenu.style.opacity = '1'; // Reset opacity for future fadeIn
+        }, 100);
+    }
+}
+	
+	
+	
+	
+	let isDragging = false;
+    let draggedButton = null;
+    let offsetX, offsetY, initialX, initialY;
+
+    document.addEventListener("mousedown", function (event) {
+        if (event.target.classList.contains("button")) {
+            isDragging = true;
+            draggedButton = event.target;
+
+            const rect = draggedButton.getBoundingClientRect();
+            offsetX = event.clientX - rect.left;
+            offsetY = event.clientY - rect.top;
+            initialX = rect.left;
+            initialY = rect.top;
+        }
+    });
+
+    document.addEventListener("mousemove", function (event) {
+        if (isDragging && draggedButton) {
+            event.preventDefault();
+
+            const x = event.clientX - offsetX;
+            const y = event.clientY - offsetY;
+
+            const deltaX = x - initialX;
+            const deltaY = y - initialY;
+
+            draggedButton.style.transform = `translate(${deltaX}px, ${deltaY}px)`;
+        }
+    });
+
+    document.addEventListener("mouseup", function () {
+        if (isDragging && draggedButton) {
+            draggedButton.style.transform = "translate(0, 0)";
+        }
+        isDragging = false;
+        draggedButton = null;
+    });
+	
+	
 	
 	
 	

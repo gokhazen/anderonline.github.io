@@ -239,15 +239,27 @@
     background-color: #4a235a; /* Karanlık pembe arka plan rengi */
     color: #ecf0f1; /* Beyaz metin rengi */
     text-align: left;
-    padding: 1em;
+    padding: 0.7em;
     position: fixed;
     bottom: 30px;
     right: 50%;
     transform: translateX(50%); /* Ekranın ortasına yerleştirme */
     max-width: calc(100%);
-    width: 300px;
+    width: 290px;
     border-radius: 10px; /* Köşeleri yumuşat */
     transition: background-color 0.3s ease; /* Renk değişimine bir geçiş ekler */
+}
+
+.button {
+    display: inline-block;
+    background-color: transparent;
+    background-size: cover;
+    width: 38px;
+    height: 38px;
+    margin-right: 10px;
+    border: none;
+    text-indent: -9999px;
+    transition: transform 0.5s ease-in-out, box-shadow 0.3s ease-in-out, border-radius 0.3s ease-in-out;
 }
 }
 
@@ -305,29 +317,7 @@
             background-image: url('logophotos/youtube-icon.png');
         }
 
-.welcome-box {
-    position: fixed;
-    top: 50%;
-    left: 10%;
-    background-color: #ffffff;
-    border-radius: 10px;
-    padding: 20px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    text-align: center;
-    z-index: 999;
-    transition: transform 0.5s ease-in-out, box-shadow 0.5s ease-in-out;
-}
 
-.welcome-box:hover {
-    transform: translateY(-10px);
-    box-shadow: 0 12px 20px rgba(0, 0, 0, 0.2);
-}
-
-.welcome-box p {
-    margin: 0;
-    font-size: 16px;
-    color: #333;
-}
           
 
 #greeting-box {
@@ -356,19 +346,18 @@
         #greeting-box {
     position: fixed;
     top: 250px;
-    left: 20px; /* Yeni sol konum */
-
-    background-color: #4a235a; /* Açık pembe renk */
+    left: 30px;
+    background-color: #4a235a;
     border-radius: 10px;
-    padding: 20px;
+    padding: 13px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    text-align: left; /* Metni sola hizala */
+    text-align: left;
     z-index: 999;
 }
 
 #greeting-box p {
     margin: 0;
-    font-size: 16px;
+    font-size: 14px;
     color: #ffffff; /* Beyaz renk */
     font-weight: bold; /* Kalın yazı */
     text-shadow: 0 0 10px rgba(0, 0, 0, 0.3); /* Yumuşak ve etrafında gölge */
@@ -419,7 +408,7 @@
       <li><a href="index.html" class="active">Ana Sayfa</a></li>
         <li><a href="projects.html">Kütüphane</a></li>
         <li><a href="info.html">Hakkımda</a></li>
-        <li><a href="kisisel.html">Kişisel</a></li>
+        <li><a href="blog.html">Kişisel</a></li>
     </ul>
   </nav>
   
@@ -439,9 +428,6 @@
             <a href="https://steamcommunity.com/id/apeshe/" target="_blank" class="button button-steam" aria-label="Steam'e Git"></a>
             <a href="link" target="_blank" class="button button-xbox" aria-label="Xbox'a Git"></a>
             <a href="https://www.youtube.com/channel/UCKPqdp3Bxd0NTKzqdekdBzg" target="_blank" class="button button-youtube" aria-label="Youtube'a Git"></a>
-            <a href="link" target="_blank" class="button button-aaa" aria-label="AAA"></a>
-            <a href="link" target="_blank" class="button button-aaa" aria-label="AAA"></a>
-			<a href="link" target="_blank" class="button button-aaa" aria-label="AAA"></a>
         </div>
         <!-- Diğer sosyal medya hesaplarına yönlendirme butonları buraya eklenebilir -->
     </footer>
@@ -472,8 +458,8 @@
     '🌌 Yaratıcılığımı keşfedin!',
     '🌍 Benimle keşfe çıkın!',
     '🎨 Yaratıcılığımı sizinle paylaşıyorum.',
-    '🔍 Merak ediyorsanız, projelerime göz atın!',
-    '👀 Sizi projelerimle tanışmaya davet ediyorum!'
+    '🔍 Projelerime göz atarmısın :)',
+    '👀 Projelerimle tanışmaya davet ediyorum!'
             ];
 
             function setGreeting() {
