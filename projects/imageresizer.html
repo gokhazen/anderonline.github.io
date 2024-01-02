@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Resim Kırpma</title>
+</head>
+<body>
+    <input type="file" id="fileInput" />
+    <br />
+    <img id="croppedImage" alt="Kırpılmış Resim" />
+    <br />
+    <button onclick="cropImage()">Resmi Kırp</button>
+
+    <script>
+        function cropImage() {
+            var fileInput = document.getElementById('fileInput');
+            var croppedImage = document.getElementById('croppedImage');
+
+            var file = fileInput.files[0];
+            if (file) {
+                var reader = new FileReader();
+
+                reader.onload = function (e) {
+                    var img = new Image();
+                    img.src = e.target.result;
+
+                    img.onload = function () {
+                        // İstediğiniz kırpma işlemini burada yapabilirsiniz.
+                        // Örneğin: ctx.drawImage(img, sx, sy, sWidth, sHeight, dx, dy, dWidth, dHeight);
+                        // Daha sonra kırpılmış resmi göstermek için:
+                        croppedImage.src = kırpılmışResimYolu;
+                    };
+                };
+
+                reader.readAsDataURL(file);
+            }
+        }
+    </script>
+</body>
+</html>
