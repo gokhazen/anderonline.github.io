@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Kalan Süre Sayaç</title>
+  <style>
+    body {
+  font-family: 'Roboto', sans-serif;
+  background-color: #f0f0f0; /* Lighter background color */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+  margin: 0;
+}
+
+#countdown-container {
+  text-align: center;
+}
+
+h1 {
+  color: #333;
+}
+
+#countdown {
+  font-size: 2.5em;
+  color: #555;
+  margin-bottom: 10px; /* Added space between countdown and message */
+}
+
+#message {
+  font-size: 1.8em;
+  color: #333; /* Darker color for better visibility */
+}
+  </style>
+</head>
+<body>
+
+  <div id="countdown-container">
+    <h1>YKS 2024 Geri Sayım</h1>
+    <div id="countdown"></div>
+    <div id="message"></div>
+  </div>
+
+  <script>
+    var targetDate = new Date('June 8, 2024 00:00:00').getTime();
+
+    var x = setInterval(function() {
+      var currentDate = new Date().getTime();
+      var distance = targetDate - currentDate;
+
+      var days = Math.floor(distance / (1000 * 60 * 60 * 24));
+      var hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+      var minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+      var seconds = Math.floor((distance % (1000 * 60)) / 1000);
+
+      document.getElementById('countdown').innerHTML = days + ' gün ' + hours + ' saat ' + minutes + ' dakika ' + seconds + ' saniye';
+
+      if (distance < 0) {
+        clearInterval(x);
+        document.getElementById('countdown').innerHTML = 'Süre doldu!';
+        document.getElementById('message').innerHTML = 'Hoş geldin!';
+      }
+    }, 1000);
+  </script>
+
+</body>
+</html>

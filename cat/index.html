@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gönderiler</title>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f4;
+        }
+
+        .post-container {
+            display: flex;
+            border: 1px solid #ccc;
+            margin: 20px;
+            background-color: #fff;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            border-radius: 10px;
+            overflow: hidden;
+        }
+
+        .gallery {
+            flex: 1;
+            padding: 20px;
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-around;
+            align-items: center;
+        }
+
+        .gallery img {
+            width: 130px;
+            height: auto;
+            margin-bottom: 10px;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease-in-out;
+            cursor: pointer;
+        }
+
+        .gallery img:hover {
+            transform: scale(1.1);
+        }
+
+        .info {
+            flex: 1;
+            padding: 20px;
+        }
+
+        h2 {
+            margin-bottom: 10px;
+            color: #333;
+        }
+
+        .date {
+            color: #0077cc;
+            font-size: 14px;
+            margin-bottom: 10px;
+        }
+
+        p {
+            color: #555;
+        }
+
+       .progress-bar-container {
+        width: 100%;
+        background-color: #e0e0e0;
+        border-radius: 5px;
+        margin-bottom: 20px;
+        height: 20px;
+        overflow: hidden;
+    }
+
+    .progress-bar {
+        height: 100%;
+        width: 0;
+        background-color: #4caf50;
+        border-radius: 5px;
+        transition: width 1s ease-in-out; /* Add animation transition */
+    }
+
+    .cat-count {
+        text-align: center;
+        margin-top: 10px;
+        color: #333;
+        font-weight: bold;
+    }
+       
+    </style>
+</head>
+
+<body>
+
+
+<div class="cat-count" id="cat-count">Beslenen Pisicik Sayısı: 6  Hedefim: 300 Pati</div>
+
+    <div class="progress-bar-container">
+        <div class="progress-bar" id="progress-bar"></div>
+    </div>
+	
+	
+    <div class="post-container">
+        <div class="gallery">
+            <img src="photo/01.02.2024_1.jpg" alt="Resim">
+            <img src="photo/01.02.2024_2.jpg" alt="Resim">
+            <img src="photo/01.02.2024_3.jpg" alt="Resim">
+        </div>
+        <div class="info">
+            <h2>Marketin orada miyavlayan pisicik ve arkadaşı.</h2>
+            <p class="date">Tarih: 02.01.2024</p>
+            <p>Açıklama 3</p>
+        </div>
+    </div>
+
+    <div class="post-container">
+        <div class="gallery">
+            <img src="photo/01.04.2024_1.jpg" alt="Resim">
+            <img src="photo/01.04.2024_2.jpg" alt="Resim">
+            <img src="photo/01.04.2024_3.jpg" alt="Resim">
+        </div>
+        <div class="info">
+            <h2>Yolda beni selamladılar.</h2>
+            <p class="date">Tarih: 04.01.2024</p>
+            <p>Açıklama 3</p>
+        </div>
+    </div>
+
+    <div class="post-container">
+        <div class="gallery">
+            <img src="photo/01.05.2024_1.jpg" alt="Resim">
+            <img src="photo/01.05.2024_2.jpg" alt="Resim">
+        </div>
+        <div class="info">
+            <h2>Bir süpriz yaşadım.</h2>
+            <p class="date">Tarih: 05.01.2024</p>
+            <p>Açıklama 3</p>
+        </div>
+    </div>
+
+    <!-- New Post -->
+    <div class="post-container">
+        <div class="gallery">
+            <img src="photo/01.06.2024_1.jpg" alt="Resim">
+            <img src="photo/01.06.2024_2.jpg" alt="Resim">
+            <img src="photo/01.06.2024_3.jpg" alt="Resim">
+        </div>
+        <div class="info">
+            <h2>Yepyeni bir deneyim!</h2>
+            <p class="date">Tarih: 06.01.2024</p>
+            <p>Açıklama 4</p>
+        </div>
+    </div>
+
+   
+
+    <script>
+        
+		document.addEventListener("DOMContentLoaded", function () {
+        var currentCats = 6;
+        var targetCats = 300;
+        var progress = (currentCats / targetCats) * 100;
+        var progressBar = document.getElementById("progress-bar");
+
+        // Set the width of the progress bar with animation
+        progressBar.style.width = progress + "%";
+        progressBar.style.transition = "width 1s ease-in-out";
+
+        // Display the current cat count
+        document.getElementById("cat-count").innerText = "Beslenen Pisicik Sayısı: " + currentCats;
+    });
+		
+    </script>
+
+</body>
+
+</html>

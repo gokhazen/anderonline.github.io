@@ -1,0 +1,211 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Oyunlar</title>
+    <style>
+        body {
+    font-family: 'Roboto', sans-serif;
+    background-color: #1a1a1a;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    min-height: 100vh;
+    color: #fff;
+}
+
+h1 {
+    color: #3498db; /* Updated heading color to a lighter blue */
+    margin-bottom: 20px;
+}
+
+.game-container {
+    background-color: #2c3e50; /* Adjusted to a darker blue-gray */
+    padding: 20px;
+    margin: 10px;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(255, 255, 255, 0.1);
+    text-align: center;
+    transition: transform 0.3s ease-in-out;
+}
+
+.game-container:hover {
+    transform: scale(1.05);
+}
+
+button {
+    background-color: #3498db;
+    color: #fff;
+    padding: 10px 20px;
+    font-size: 16px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease-in-out;
+}
+
+button:hover {
+    background-color: #2980b9;
+}
+
+.discord-button-container {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+}
+
+.discord-button {
+    background-color: #7289da;
+    color: #fff;
+    padding: 15px 30px;
+    font-size: 18px;
+    text-decoration: none;
+    border-radius: 8px;
+    display: inline-block;
+    transition: background-color 0.3s ease-in-out;
+    border: 2px solid #4e5d94;
+}
+
+.discord-button:hover {
+    background-color: #677bc4;
+}
+		
+		@keyframes gradientAnimation {
+            0% {
+                background-position: 0% 50%;
+            }
+            50% {
+                background-position: 100% 50%;
+            }
+            100% {
+                background-position: 0% 50%;
+            }
+        }
+
+        body {
+            background: linear-gradient(45deg, #303030, #1a1a1a, #000000); /* Karanlık tonlarda renk geçişli gradyan arka plan */
+            background-size: 200% 200%;
+        }
+		
+		.top-buttons {
+        position: absolute;
+        top: 10px;
+        right: 10px;
+        display: flex;
+    }
+
+    .top-buttons button {
+        color: #fff;
+        background-color: #555; /* Daha yumuşak bir renk seçimi */
+        margin-left: 10px;
+        padding: 10px 15px; /* Daha geniş ve yumuşak bir içerik alanı */
+        font-size: 16px; /* Biraz daha büyük font boyutu */
+        border: none; /* Kenarlık olmadan daha sade bir görünüm */
+        border-radius: 5px; /* Köşeleri biraz yuvarlat */
+        transition: background-color 0.3s ease; /* Yumuşak geçiş efekti */
+    }
+
+    .top-buttons button:hover {
+        background-color: #777; /* Hover durumunda biraz daha koyu bir renk */
+    }
+
+    @media (max-width: 767px) {
+    .top-buttons {
+        right: 0;
+        left: 0;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .top-buttons button {
+        margin: 5px;
+        padding: 6px 10px; /* Adjust padding for a slimmer appearance on smaller screens */
+        font-size: 12px; /* Adjust font size for a slimmer appearance on smaller screens */
+        }
+    }
+    </style>
+</head>
+<body>
+
+<div class="top-buttons">
+        <button onclick="location.href='../../'" class="redirect-button">Anasayfa</button>
+        <button onclick="location.href='../../library/'" class="redirect-button">Kütüphane</button>
+    </div>
+
+<h1>Oyunlar</h1>
+
+<div class="game-container">
+    <h3>Tetris</h3>
+    <button onclick="oyunAc('tetris.html')">Oyunu Aç</button>
+</div>
+
+<div class="game-container">
+    <h3>Snake</h3>
+    <button onclick="oyunAc('snake.html')">Oyunu Aç</button>
+</div>
+
+<div class="game-container">
+    <h3>Puzzle Bubble</h3>
+    <button onclick="oyunAc('puzzlebubble.html')">Oyunu Aç</button>
+</div>
+
+<div class="game-container">
+    <h3>Pong</h3>
+    <button onclick="oyunAc('pong.html')">Oyunu Aç</button>
+</div>
+
+<div class="game-container">
+    <h3>Basic Breakout</h3>
+    <button onclick="oyunAc('basicbreakout.html')">Oyunu Aç</button>
+</div>
+
+<div class="game-container">
+    <h3>Race Game</h3>
+    <button onclick="oyunAc('racegame/')">Oyunu Aç</button>
+</div>
+
+<div class="game-container">
+    <h3>Flappy Bird</h3>
+    <button onclick="oyunAc('bird/')">Oyunu Aç</button>
+</div>
+
+<div class="game-container">
+    <h3>2048</h3>
+    <button onclick="oyunAc('2048/')">Oyunu Aç</button>
+</div>
+
+<div class="game-container">
+    <h3>Tetris</h3>
+    <button onclick="oyunAc('game/tetris.html')">Oyunu Aç</button>
+</div>
+
+<div class="game-container">
+    <h3>Tetris</h3>
+    <button onclick="oyunAc('game/tetris.html')">Oyunu Aç</button>
+</div>
+
+<!-- Diğer oyunlar için benzer div ve buton yapıları ekleyebilirsiniz -->
+
+<!-- Discord sunucu katılma butonu -->
+<div class="discord-button-container">
+    <a href="https://discord.gg/SUNUCU_KODU" target="_blank" class="discord-button">
+        Discord Sunucumuza Katıl
+    </a>
+</div>
+
+<script>
+    function oyunAc(oyunDosyaAdi) {
+        window.open(oyunDosyaAdi, '_blank');
+    }
+	
+	function openPage(pageUrl) {
+            window.location.href = pageUrl;
+        }
+</script>
+
+</body>
+</html>

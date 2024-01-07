@@ -1,0 +1,673 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Kariyerim!</title>
+	<link rel="icon" href="../image/favicon.ico" type="image/x-icon">
+    <link rel="shortcut icon" href="../image/favicon.ico" type="image/x-icon">
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Proje Listesi</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            margin: 0;
+            padding: 0;
+            background: url('../image/background-image.jpg');
+            background-size: cover;
+            background-repeat: no-repeat;
+            background-attachment: fixed;
+        }
+		
+		
+		@media (max-width: 600px) {
+    body {
+        background-position: center;
+    }
+}
+
+    .navbar {
+  position: fixed; /* Ekranda sabit konum */
+  top: 0; /* Üst kenara sabitle */
+  left: 0; /* Sol kenara sabitle */
+  width: 100%; /* Ekran genişliğini doldur */
+  background-color: #333;
+  padding: 15px;
+  color: white;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  z-index: 1000; /* Diğer elementlerden üstte olması için z-index ayarı */
+}
+
+
+    .logo-container {
+      position: relative;
+      max-width: 400px;
+      max-height: 50px;
+    }
+
+    .logo {
+      width: 100%;
+      height: auto;
+    }
+
+    .santa-hat {
+      position: absolute;
+      top: 0;
+      right: 0;
+	  max-width: 50px;
+      max-height: 50px;
+      transform: translate(65%, -25%);
+      z-index: 1; /* Logo'nun üzerine gelmesi için z-index ayarı */
+    }
+
+@media (max-width: 600px) {
+    .santa-hat {
+        display: none;
+    }
+}
+
+
+    .nav-list {
+      list-style: none;
+      margin: 0;
+      padding: 0;
+      display: flex;
+      flex-grow: 1;
+      justify-content: flex-end;
+      overflow: hidden;
+      transition: max-height 0.5s ease-out;
+	  margin-right: 13px;
+    }
+
+    .nav-list.show {
+      max-height: 500px; /* Adjust as needed */
+    }
+
+    .nav-list li {
+      margin: 10px 0;
+    }
+
+    .nav-list a {
+      text-decoration: none;
+      color: white;
+      font-weight: bold;
+      padding: 8px 15px;
+      border-radius: 5px;
+      display: block;
+      transition: background-color 0.3s ease, transform 0.2s ease, opacity 0.3s ease;
+    }
+
+    .nav-list a:hover {
+      background-color: #555;
+      transform: scale(1.1);
+      opacity: 1;
+    }
+
+    .menu-icon {
+      display: none;
+      cursor: pointer;
+    }
+
+    @media (max-width: 767px) {
+	.logo-container {
+      position: relative;
+      max-width: 300px;
+      max-height: 50px;
+    }
+      .nav-list {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        position: absolute;
+        top: 60px;
+        right: 1px;
+        background-color: #333;
+        width: 100%;
+        text-align: right;
+        max-height: 0;
+        overflow: hidden;
+      }
+
+      .nav-list.show {
+        max-height: 500px; /* Adjust as needed */
+      }
+
+      .nav-list li {
+        text-align: center;
+        margin: 10px 0;
+      }
+
+      .menu-icon {
+  position: fixed;
+  top: 21px;
+  right: 20px;
+  display: block;
+  cursor: pointer;
+}
+    }
+
+    /* Yeni eklenen özellikler */
+    .nav-list a.active {
+      background-color: #555;
+    }
+
+    .navbar:hover .nav-list a:not(:hover) {
+  opacity: 0.8;
+}
+.logo-container:hover::before {
+  content: '';
+  position: absolute;
+  width: 430px;
+  height: 100%;
+  background: url('../image/snowfall.gif'); /* Replace with the path to your snowfall GIF */
+  animation: snowfall 3s linear infinite; /* Adjust the animation duration as needed */
+  pointer-events: none; /* Ensure that the snowfall doesn't interfere with hover events */
+}
+
+
+
+.gradient-background {
+  height: 100vh;
+background: linear-gradient(45deg, #000000, #1a0d17, #2f0c1f, #001f4f, #00221a);
+  background-size: 200% 200%;
+  animation: gradientAnimation 15s infinite;
+  overflow-y: scroll;
+}
+
+@keyframes gradientAnimation {
+  0% {
+    background-position: 0% 50%;
+  }
+  25% {
+    background-position: 50% 0%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  75% {
+    background-position: 50% 100%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
+
+
+
+        .project-container {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 20px;
+            padding: 20px;
+        }
+
+        .project {
+            background-color: #333;
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            overflow: hidden;
+            width: 300px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease-in-out;
+            position: relative;
+        }
+
+        .project:hover {
+            transform: scale(1.05);
+        }
+
+        .project img {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+             border-bottom: 2px solid #1B5E20;
+        }
+
+        .project-content {
+            padding: 20px;
+            height: 200px;
+            overflow: hidden;
+        }
+
+        .project h2 {
+            color: #fff;
+            margin-bottom: 10px;
+            font-size: 1.8em;
+        }
+
+        .project p {
+            color: #999;
+            font-size: 1.2em;
+            line-height: 1.4;
+        }
+
+        .overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(76, 175, 80, 0.95);
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            opacity: 0;
+            transition: opacity 0.3s ease-in-out;
+        }
+
+        .project:hover .overlay {
+            opacity: 1;
+        }
+
+@media (max-width: 767px) {
+	 .project {
+      position: relative;
+      max-width: 150px;
+      max-height: 400px;
+    }
+	.project:hover {
+            transform: scale(1.05);
+        }
+
+        .project img {
+            width: 100%;
+            height: 100px;
+            object-fit: cover;
+             border-bottom: 2px solid #1B5E20;
+        }
+
+        .project-content {
+            padding: 10px;
+            height: 120px;
+            overflow: hidden;
+        }
+
+        .project h2 {
+            color: #fff;
+            margin-bottom: 0px;
+            font-size: 1.1em;
+        }
+
+        .project p {
+            color: #999;
+            font-size: 0.8em;
+            line-height: 1;
+        }
+		.view-button {
+    background-color: #E91E63; /* Pembe tonu */
+    color: #fff;
+    padding: 8px 15px;
+    text-decoration: none;
+    display: inline-block;
+    border-radius: 5px;
+    transition: background-color 0.3s ease-in-out;
+    margin-top: 10px;
+	font-size: 0.7em;
+}
+	}
+
+       .view-button {
+    background-color: #E91E63; /* Pembe tonu */
+    color: #fff;
+    padding: 8px 15px;
+    text-decoration: none;
+    display: inline-block;
+    border-radius: 5px;
+    transition: background-color 0.3s ease-in-out;
+    margin-top: 10px;
+}
+
+.view-button:hover {
+    background-color: #C2185B; /* Daha koyu pembe tonu */
+}
+
+        .project-category {
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            background-color: #4CAF50;
+            color: #fff;
+            padding: 5px 10px;
+            border-radius: 5px;
+            font-size: 0.8em;
+        }
+
+        .project-category:hover {
+            background-color: #45a049;
+        }
+		
+		.search-bar {
+            margin: 20px;
+            text-align: center;
+            position: relative;
+        }
+
+        #searchInput {
+            padding: 10px 15px;
+            width: 300px;
+            border: none;
+            border-radius: 25px;
+            outline: none;
+            font-size: 1em;
+            background-color: #f2f2f2;
+            transition: background-color 0.3s;
+        }
+
+        #searchInput:focus {
+            background-color: #e0e0e0;
+        }
+
+        @media (max-width: 767px) {
+		#searchInput {
+            padding: 10px 15px;
+            width: 300px;
+            border: none;
+            border-radius: 25px;
+            outline: none;
+            font-size: 0.6;
+            background-color: #f2f2f2;
+            transition: background-color 0.3s;
+        }
+		.search-bar {
+            margin: 1px;
+            text-align: center;
+            position: relative;
+        }
+		}
+		
+
+      </style>
+  <title>mrander.onlinev2</title>
+</head>
+<body>
+
+<div class="gradient-background">
+
+  <nav class="navbar">
+    <div class="logo-container">
+      <img src="../image/logo.png" alt="Logo" class="logo">
+      <img src="../image/santa.png" alt="Santa Hat" class="santa-hat">
+    </div>
+    <div class="menu-icon">&#9776;</div>
+    <ul class="nav-list">
+      <li><a href="../">Ana Sayfa</a></li>
+        <li><a href="" class="active">Kütüphane</a></li>
+        <li><a href="../info">Hakkımda</a></li>
+        <li><a href="../blog">Kişisel</a></li>
+    </ul>
+  </nav>
+	
+	
+    <div class="search-bar" style="margin-top: 115px;">
+        <input type="text" id="searchInput" oninput="searchProjects()" placeholder="Ne arıyordunuz?">
+    </div>
+
+
+    <div class="project-container">
+        <div class="project">
+            <span class="project-category">HTML</span>
+            <img src="projectphotos/weather.jpg" alt="Proje 1 Resmi">
+            <div class="project-content">
+                <h2>Şahin Map</h2>
+                <p>Hava durumunu öğrenmek ve haritalar için yaptığım projem.</p>
+                <div class="overlay">
+                    <a href="weather.html" class="view-button">Projeyi Görüntüle</a>
+                </div>
+            </div>
+        </div>
+
+        <div class="project">
+            <span class="project-category">SMITH</span>
+            <img src="projectphotos/smithstore.png" alt="Proje 2 Resmi">
+            <div class="project-content">
+                <h2>Smith Store</h2>
+                <p>Geliştirme aşamasında olan uygulama mağazam.</p>
+                <div class="overlay">
+                    <a href="smith/store.html" class="view-button">Projeyi Görüntüle</a>
+                </div>
+            </div>
+        </div>
+		
+		<div class="project">
+            <span class="project-category">GAME</span>
+            <img src="projectphotos/turkisheylencepacketi.png" alt="Proje 2 Resmi">
+            <div class="project-content">
+                <h2>Turkish Eylence Packeti</h2>
+                <p>Garrys Mod için 600 modlu koleksiyonum.</p>
+                <div class="overlay">
+                    <a href="https://steamcommunity.com/sharedfiles/filedetails/?id=2822784373" class="view-button">Projeyi Görüntüle</a>
+                </div>
+            </div>
+        </div>
+
+        <div class="project">
+            <span class="project-category">SMITH</span>
+            <img src="projectphotos/smith.jpg" alt="Proje 2 Resmi">
+            <div class="project-content">
+                <h2>Smith OS</h2>
+                <p>Saçma sapan eklemelerden uzak sade bir windows. Üstelik daha hızlı!</p>
+                <div class="overlay">
+                    <a href="smith.html" class="view-button">Projeyi Görüntüle</a>
+                </div>
+            </div>
+        </div>
+
+        <div class="project">
+            <span class="project-category">TURKEY</span>
+            <img src="projectphotos/turkeyportal.jpg" alt="Proje 2 Resmi">
+            <div class="project-content">
+                <h2>Türkiye Portalı</h2>
+                <p>Ülkemizle alakalı resmi verileri inceleyebileceğiniz bir portal.</p>
+                <div class="overlay">
+                    <a href="turkey/index.html" class="view-button">Projeyi Görüntüle</a>
+                </div>
+            </div>
+        </div>
+		
+		<div class="project">
+            <span class="project-category">TURKEY</span>
+            <img src="projectphotos/deprem.jpg" alt="Proje 2 Resmi">
+            <div class="project-content">
+                <h2>Deprem Takip</h2>
+                <p>Anlık olarak afad ve kandili den bilgi çeken deprem takip sistemi.</p>
+                <div class="overlay">
+                    <a href="turkey/deprem.html" class="view-button">Projeyi Görüntüle</a>
+                </div>
+            </div>
+        </div>
+		
+		<div class="project">
+            <span class="project-category">GAME</span>
+            <img src="projectphotos/tba.png" alt="Proje 2 Resmi">
+            <div class="project-content">
+                <h2>Oyunlar Menüsü</h2>
+                <p>Yaptığım veya internetten aldığım HTML oyunlarının portalı.</p>
+                <div class="overlay">
+                    <a href="game/" class="view-button">Projeyi Görüntüle</a>
+                </div>
+            </div>
+        </div>
+		
+		<div class="project">
+            <span class="project-category">HTML</span>
+            <img src="projectphotos/tba.png" alt="Proje 2 Resmi">
+            <div class="project-content">
+                <h2>ESET31</h2>
+                <p>Underdevelopment</p>
+                <div class="overlay">
+                    <a href="turkey/deprem.html" class="view-button">Projeyi Görüntüle</a>
+                </div>
+            </div>
+        </div>
+		
+		<div class="project">
+            <span class="project-category">HTML</span>
+            <img src="projectphotos/matric.png" alt="Proje 2 Resmi">
+            <div class="project-content">
+                <h2>Matrix Text</h2>
+                <p>Gerçek dünyadan matrixde olanları izlediğimiz ekran.</p>
+                <div class="overlay">
+                    <a href="matrix.html" class="view-button">Projeyi Görüntüle</a>
+                </div>
+            </div>
+        </div>
+		
+		<div class="project">
+            <span class="project-category">HTML</span>
+            <img src="projectphotos/colorpicker.png" alt="Proje 2 Resmi">
+            <div class="project-content">
+                <h2>Color Picker</h2>
+                <p>İstediğiniz dosyada seçtiğiniz bölgedeki rengi öğrenmenizi sağlar</p>
+                <div class="overlay">
+                    <a href="colorpicker.html" class="view-button">Projeyi Görüntüle</a>
+                </div>
+            </div>
+        </div>
+		
+		<div class="project">
+            <span class="project-category">HTML</span>
+            <img src="projectphotos/tba.png" alt="Proje 2 Resmi">
+            <div class="project-content">
+                <h2>Discord</h2>
+                <p>Sunucuma erişmek ve kolayca iletişime geçmek için CITY17</p>
+                <div class="overlay">
+                    <a href="../discord.html" class="view-button">Projeyi Görüntüle</a>
+                </div>
+            </div>
+        </div>
+		
+		<div class="project">
+            <span class="project-category">HTML</span>
+            <img src="projectphotos/tba.png" alt="Proje 2 Resmi">
+            <div class="project-content">
+                <h2>Redirect</h2>
+                <p>İstediğim sayfaya kendi sitem üzerinden yönlendirme.</p>
+                <div class="overlay">
+                    <a href="redirect.html" class="view-button">Projeyi Görüntüle</a>
+                </div>
+            </div>
+        </div>
+		
+		<div class="project">
+            <span class="project-category">MUSIC</span>
+            <img src="projectphotos/tba.png" alt="Proje 2 Resmi">
+            <div class="project-content">
+                <h2>Music Taste</h2>
+                <p>Dinlediğim müzikleri ve listelerimi insanlarla paylaşmanın en kolay yolu.</p>
+                <div class="overlay">
+                    <a href="music.html" class="view-button">Projeyi Görüntüle</a>
+                </div>
+            </div>
+        </div>
+		
+		<div class="project">
+            <span class="project-category">HTML</span>
+            <img src="projectphotos/tba.png" alt="Proje 2 Resmi">
+            <div class="project-content">
+                <h2>Calculator</h2>
+                <p>Smith için yaptığım basit hesap makinesi.</p>
+                <div class="overlay">
+                    <a href="calculator.html" class="view-button">Projeyi Görüntüle</a>
+                </div>
+            </div>
+        </div>
+		
+		<div class="project">
+            <span class="project-category">HTML</span>
+            <img src="projectphotos/tba.png" alt="Proje 2 Resmi">
+            <div class="project-content">
+                <h2>404</h2>
+                <p>Sitemin hata yönlendirme ekranı.</p>
+                <div class="overlay">
+                    <a href="../404.html" class="view-button">Projeyi Görüntüle</a>
+                </div>
+            </div>
+        </div>
+		
+		<div class="project">
+            <span class="project-category">TXT</span>
+            <img src="projectphotos/tba.png" alt="Proje 2 Resmi">
+            <div class="project-content">
+                <h2>Telif Hakkı</h2>
+                <p>Sitemin telif hakları ile alakalı bilgilendirme.</p>
+                <div class="overlay">
+                    <a href="rights.html" class="view-button">Projeyi Görüntüle</a>
+                </div>
+            </div>
+        </div>
+
+        <div class="project">
+            <span class="project-category">HTML</span>
+            <img src="projectphotos/tba.png" alt="Proje 2 Resmi">
+            <div class="project-content">
+                <h2>YKS 2024</h2>
+                <p>Geri sayım sitesi.</p>
+                <div class="overlay">
+                    <a href="yks.html" class="view-button">Projeyi Görüntüle</a>
+                </div>
+            </div>
+        </div>
+		
+		<div class="project">
+            <span class="project-category">Proje</span>
+            <img src="projectphotos/tba.png" alt="Proje 2 Resmi">
+            <div class="project-content">
+                <h2>Dolduaaar</h2>
+                <p>Doldur2</p>
+                <div class="overlay">
+                    <a href="turkey/deprem.html" class="view-button">Projeyi Görüntüle</a>
+                </div>
+            </div>
+        </div>
+		
+		<div class="project">
+            <span class="project-category">Proje</span>
+            <img src="projectphotos/tba.png" alt="Proje 2 Resmi">
+            <div class="project-content">
+                <h2>Dolduaaar</h2>
+                <p>Doldur2</p>
+                <div class="overlay">
+                    <a href="turkey/deprem.html" class="view-button">Projeyi Görüntüle</a>
+                </div>
+            </div>
+        </div>
+
+    <div style="position: flex; bottom: 40px; right: 0;">
+    <a href="projects/rights.html">&copy; 2024 Gökhan Özen. Tıklayın.</a>
+    </div>
+
+    </div>
+	
+	<script>
+	
+	
+	document.querySelector('.menu-icon').addEventListener('click', function() {
+      document.querySelector('.nav-list').classList.toggle('show');
+    });
+	
+        function searchProjects() {
+            const input = document.getElementById('searchInput').value.toLowerCase();
+            const projects = document.getElementsByClassName('project');
+
+            for (const project of projects) {
+                const projectName = project.querySelector('h2').innerText.toLowerCase();
+                const projectCategory = project.querySelector('.project-category').innerText.toLowerCase();
+
+                if (projectName.includes(input) || projectCategory.includes(input)) {
+                    project.style.display = 'block';
+                } else {
+                    project.style.display = 'none';
+                }
+            }
+        }
+    </script>
+</body>
+</html>

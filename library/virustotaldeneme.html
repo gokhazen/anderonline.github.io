@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>VirusTotal API Example</title>
+</head>
+<body>
+  <h1>VirusTotal API Example</h1>
+  <label for="fileInput">Choose a file:</label>
+  <input type="file" id="fileInput" />
+  <button onclick="checkFile()">Check File</button>
+  <p id="result"></p>
+
+  <script>
+    function calculateFileHash(file, callback) {
+      const reader = new FileReader();
+
+      reader.onload = function (event) {
+        const arrayBuffer = event.target.result;
+        const hashBuffer = crypto.subtle.digest('SHA-256', arrayBuffer);
+        hashBuffer.then(hashArray => {
+          const hashArrayHex = Array.from(new Uint8Array(hashArray)).map(byte => byte.toString(16).padStart(2, '0')).join('');
+          callback(hashArrayHex);
+        });
+      };
+
+      reader.readAsArrayBuffer(file);
+    }
+
+    function checkFile() {
+      const fileInput = document.getElementById('fileInput');
+      const resultElement = document.getElementById('result');
+
+      const file = fileInput.files[0];
+      if (!file) {
+        resultElement.textContent = 'Please choose a file.';
+        return;
+      }
+
+      calculateFileHash(file, function (fileHash) {
+        const apiKey = 'cd33e470831881cb28696e7f1019cd38eed30015dbc3a64fd94b3e696e249f03';
+        const apiUrl = `https://www.virustotal.com/vtapi/v2/file/report?apikey=${apiKey}&resource=${fileHash}`;
+
+        fetch(apiUrl)
+          .then(response => response.json())
+          .then(data => {
+            if (data.response_code === 1) {
+              resultElement.textContent = `Scan results: ${data.positives} out of ${data.total} scanners detected this file as malicious.`;
+            } else {
+              resultElement.textContent = 'Scan results not available.';
+            }
+          })
+          .catch(error => {
+            console.error('Error:', error);
+            resultElement.textContent = 'An error occurred while checking the file.';
+          });
+      });
+    }
+  </script>
+</body>
+</html>

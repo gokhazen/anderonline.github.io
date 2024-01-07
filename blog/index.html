@@ -1,0 +1,459 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate">
+    <meta http-equiv="Pragma" content="no-cache">
+    <meta http-equiv="Expires" content="0">
+    <title>Blog</title>
+    <style>
+        body {
+        font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        margin: 0;
+        padding: 0;
+        height: 100vh;
+        background: linear-gradient(45deg, #212121, #111, #212121, #111, #3498db, #2980b9); /* Renk geçişine yeni renkler ekledik */
+    background-size: 600% 600%; /* Artırılmış background boyutu */
+    animation: gradientAnimation 20s infinite;
+        color: #fff;
+    }
+
+    @keyframes gradientAnimation {
+    0% {
+        background-position: 0% 50%;
+    }
+    50% {
+        background-position: 100% 50%;
+    }
+    100% {
+        background-position: 0% 50%;
+    }
+}
+
+
+
+
+
+
+
+
+.navbar {
+  position: fixed; /* Ekranda sabit konum */
+  top: 0; /* Üst kenara sabitle */
+  left: 0; /* Sol kenara sabitle */
+  width: 100%; /* Ekran genişliğini doldur */
+  background-color: #333;
+  padding: 15px;
+  color: white;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  z-index: 1000; /* Diğer elementlerden üstte olması için z-index ayarı */
+}
+
+
+    .logo-container {
+      position: relative;
+      max-width: 400px;
+      max-height: 50px;
+    }
+
+    .logo {
+      width: 100%;
+      height: auto;
+    }
+
+    .santa-hat {
+      position: absolute;
+      top: 0;
+      right: 0;
+	  max-width: 50px;
+      max-height: 50px;
+      transform: translate(65%, -25%);
+      z-index: 1; /* Logo'nun üzerine gelmesi için z-index ayarı */
+    }
+
+@media (max-width: 600px) {
+    .santa-hat {
+        display: none;
+    }
+}
+
+
+    .nav-list {
+      list-style: none;
+      margin: 0;
+      padding: 0;
+      display: flex;
+      flex-grow: 1;
+      justify-content: flex-end;
+      overflow: hidden;
+      transition: max-height 0.5s ease-out;
+	  margin-right: 13px;
+    }
+
+    .nav-list.show {
+      max-height: 500px; /* Adjust as needed */
+    }
+
+    .nav-list li {
+      margin: 10px 0;
+    }
+
+    .nav-list a {
+      text-decoration: none;
+      color: white;
+      font-weight: bold;
+      padding: 8px 15px;
+      border-radius: 5px;
+      display: block;
+      transition: background-color 0.3s ease, transform 0.2s ease, opacity 0.3s ease;
+    }
+
+    .nav-list a:hover {
+      background-color: #555;
+      transform: scale(1.1);
+      opacity: 1;
+    }
+
+    .menu-icon {
+      display: none;
+      cursor: pointer;
+    }
+
+    @media (max-width: 767px) {
+	.logo-container {
+      position: relative;
+      max-width: 300px;
+      max-height: 50px;
+    }
+      .nav-list {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        position: absolute;
+        top: 60px;
+        right: 1px;
+        background-color: #333;
+        width: 100%;
+        text-align: right;
+        max-height: 0;
+        overflow: hidden;
+      }
+
+      .nav-list.show {
+        max-height: 500px; /* Adjust as needed */
+      }
+
+      .nav-list li {
+        text-align: center;
+        margin: 10px 0;
+      }
+
+      .menu-icon {
+  position: fixed;
+  top: 21px;
+  right: 20px;
+  display: block;
+  cursor: pointer;
+}
+    }
+
+    /* Yeni eklenen özellikler */
+    .nav-list a.active {
+      background-color: #555;
+    }
+
+    .navbar:hover .nav-list a:not(:hover) {
+  opacity: 0.8;
+}
+.logo-container:hover::before {
+  content: '';
+  position: absolute;
+  width: 430px;
+  height: 100%;
+  background: url('logophotos/snowfall.gif'); /* Replace with the path to your snowfall GIF */
+  animation: snowfall 3s linear infinite; /* Adjust the animation duration as needed */
+  pointer-events: none; /* Ensure that the snowfall doesn't interfere with hover events */
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+    #blog-posts {
+        max-width: 800px;
+        margin: 152px auto 20px;
+    }
+
+    div.post {
+    margin-bottom: 20px;
+    padding: 15px;
+    background-color: rgba(66, 66, 66, 0.8); /* Renk ve şeffaflığı ayarladık */
+    border: 1px solid #333;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    cursor: pointer;
+    transition: box-shadow 0.3s ease, background-color 0.3s ease; /* Şeffaflık için geçiş efektini ekledik */
+}
+
+div.post:hover {
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    background-color: rgba(66, 66, 66, 1); /* Hover durumunda şeffaflığı kaldırdık */
+}
+
+    h2, p {
+        margin: 0;
+        cursor: pointer;
+    }
+
+    h2 {
+        color: #fff;
+        font-size: 1.5em; /* Adjust font size for better readability */
+        margin-bottom: 10px; /* Add some space below the title */
+    }
+
+    p {
+        color: #ccc;
+        font-size: 0.9em; /* Adjust font size for better readability */
+        margin-bottom: 5px; /* Add some space below paragraphs */
+    }
+
+    .content {
+        display: none;
+        padding: 15px;
+        background-color: #333;
+        border: 1px solid #424242;
+        border-radius: 8px;
+        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        margin-top: 10px;
+        color: #fff;
+        opacity: 0;
+        transition: opacity 0.5s ease, transform 0.5s ease;
+    }
+
+    .reading-time, .date {
+        color: #e74c3c;
+    }
+
+    .search-container {
+        position: absolute;
+        top: 82px;
+        left: 50%;
+        transform: translate(-50%, 0);
+        text-align: center;
+        margin-top: 20px;
+    }
+
+    .search-label {
+        position: absolute;
+        top: 50%;
+        left: 15px;
+        transform: translateY(-50%);
+        color: #ecf0f1;
+    }
+
+    #search {
+        padding: 10px 10px 10px 30px;
+        border: none;
+        border-radius: 20px;
+        background-color: #2c3e50;
+        color: #ecf0f1;
+        transition: background-color 0.3s, color 0.3s, width 0.3s;
+        width: 250px;
+        display: inline-block;
+    }
+
+    #search:focus {
+        outline: none;
+        background-color: #34495e;
+        color: #fff;
+        width: 300px;
+    }
+
+    .content.visible {
+        display: block;
+        opacity: 1;
+        transform: translateY(0);
+        animation: fadeIn 0.5s ease;
+    }
+
+    @keyframes fadeIn {
+        from {
+            opacity: 0;
+        }
+        to {
+            opacity: 1;
+        }
+    }
+
+    .close-button {
+        margin: 8px auto 1px;
+        padding: 8px 16px;
+        background-color: #e74c3c;
+        color: #fff;
+        border: none;
+        border-radius: 4px;
+        cursor: pointer;
+        transition: background-color 0.3s, color 0.3s;
+    }
+
+    .close-button:hover {
+        background-color: #c0392b;
+    }
+    </style>
+</head>
+<body>
+
+
+<nav class="navbar">
+    <div class="logo-container">
+      <img src="../image/logo.png" alt="Logo" class="logo">
+      <img src="../image/santa.png" alt="Santa Hat" class="santa-hat">
+    </div>
+    <div class="menu-icon">&#9776;</div>
+    <ul class="nav-list">
+      <li><a href="../">Ana Sayfa</a></li>
+        <li><a href="../library">Kütüphane</a></li>
+        <li><a href="../info">Hakkımda</a></li>
+        <li><a href="" class="active">Kişisel</a></li>
+    </ul>
+  </nav>
+
+
+<div id="blog-posts">
+    <div class="search-container">
+    <input type="text" id="search" oninput="searchPosts()" placeholder="Burada ara...">
+</div>
+</div>
+
+<script>
+    const fetchBlogPosts = async () => {
+        try {
+            const postFiles = [
+                'post/post1.json',
+                'post/post2.json',
+                'post/post3.json',
+                'post/post4.json',
+                // Diğer post dosyaları...
+            ];
+            const posts = await Promise.all(postFiles.map(fetchPost));
+            displayPosts(posts);
+        } catch (error) {
+            console.error("Gönderi bilgileri post/postx.json dan alınamadı! Dosya yolunu kontrol ediniz:", error);
+        }
+    };
+
+    const fetchPost = async (file) => {
+        const response = await fetch(file);
+        return response.json();
+    };
+
+    const displayPosts = (posts) => {
+    const blogPostsElement = document.getElementById("blog-posts");
+
+    posts.forEach(post => {
+        const postElement = document.createElement("div");
+        postElement.classList.add("post");
+
+        const readingTime = calculateReadingTime(post.content);
+
+        let readingTimeColor = "#00ff00"; // Green by default
+        if (readingTime > 5) {
+            readingTimeColor = "#ffa500"; // Orange if reading time is more than 5 minutes
+        }
+        if (readingTime > 10) {
+            readingTimeColor = "#e74c3c"; // Red if reading time is more than 10 minutes
+        }
+
+        postElement.innerHTML = `
+            <h2 onclick="toggleContent(this)">${post.title}</h2>
+            <p>${post.date} - <span style="color: ${readingTimeColor}">${readingTime} dakika okuma süresi</span></p>
+            <div class="content">
+                <p>${post.content}</p>
+                <button class="close-button" onclick="closeContent(this)">Küçült</button>
+            </div>
+        `;
+        blogPostsElement.appendChild(postElement);
+    });
+};
+
+const toggleContent = (element) => {
+    const contentElement = element.nextElementSibling.nextElementSibling;
+
+    // Toggle the class to control the visibility
+    contentElement.classList.toggle("visible");
+
+    // Toggle the display property for better control
+    contentElement.style.display = contentElement.classList.contains("visible") ? "block" : "none";
+
+    // If closing, remove the slide-down class to enable the slide-up animation
+    if (!contentElement.classList.contains("visible")) {
+        contentElement.classList.remove("slide-down");
+    }
+};
+
+
+const closeContent = (button) => {
+    const contentElement = button.parentElement;
+    
+    // Add the "slide-down" class for slide-up animation
+    contentElement.classList.add("slide-down");
+
+    // Set a timeout to hide the content after the animation
+    setTimeout(() => {
+        contentElement.style.display = "none";
+    }, 10); // Adjust the time based on your animation duration
+};
+
+    const calculateReadingTime = (content) => {
+    const wordsPerMinute = 200;
+    const wordCount = content.split(/\s/g).length;
+    const readingTime = Math.ceil(wordCount / wordsPerMinute);
+    return readingTime || 1; // Minimum reading time is 1 minute
+};
+
+    document.addEventListener("DOMContentLoaded", fetchBlogPosts);
+
+    document.addEventListener("keydown", (event) => {
+        if (event.ctrlKey && event.key === 'F5') {
+            location.reload(true);
+        }
+    });
+	
+	
+	
+	
+	const removeDiacritics = (text) => {
+        return text.normalize("NFD").replace(/[\u0300-\u036f]/g, "");
+    };
+
+    const searchPosts = () => {
+        const searchInput = removeDiacritics(document.getElementById("search").value.toLowerCase());
+        const posts = document.getElementsByClassName("post");
+
+        for (const post of posts) {
+            const title = removeDiacritics(post.querySelector("h2").innerText.toLowerCase());
+            const date = removeDiacritics(post.querySelector("p").innerText.toLowerCase());
+
+            if (title.includes(searchInput) || date.includes(searchInput)) {
+                post.style.display = "block";
+            } else {
+                post.style.display = "none";
+            }
+        }
+    };
+</script>
+
+</body>
+</html>
