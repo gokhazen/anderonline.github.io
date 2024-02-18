@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Soru Çözme Formu</title>
+<style>
+    body {
+        font-family: Arial, sans-serif;
+        margin: 0;
+        padding: 0;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+
+    h1 {
+        margin-bottom: 20px;
+    }
+
+    .question {
+        margin-bottom: 20px;
+        width: 90%; /* Soru bloğunun genişliği */
+        max-width: 600px;
+        border: 1px solid #ccc;
+        padding: 20px;
+        background-color: #fff; /* Soru bloğunun arka plan rengi */
+        border-radius: 8px;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); /* Gölgelendirme */
+        display: flex;
+        align-items: center;
+    }
+
+    .question p {
+        margin: 0;
+        margin-right: 20px; /* Şıkların sağında boşluk bırakma */
+        font-weight: bold; /* Soru metninin kalın olarak gösterilmesi */
+        color: #555; /* Soru metninin rengi */
+    }
+
+    .options {
+        display: flex;
+    }
+
+    .options label {
+        margin-right: 15px;
+        font-weight: normal; /* Seçenek metninin normal kalınlıkta olması */
+    }
+
+    .options input[type="radio"] {
+        margin-right: 5px;
+    }
+
+    #addQuestionButton {
+        position: fixed;
+        bottom: 20px;
+        padding: 10px 20px;
+        border: none;
+        border-radius: 5px;
+        background-color: #007bff; /* Buton rengi */
+        color: #fff; /* Buton metin rengi */
+        cursor: pointer;
+        transition: background-color 0.3s ease;
+    }
+
+    #addQuestionButton:hover {
+        background-color: #0056b3; /* Butona fare gelince rengin değişmesi */
+    }
+</style>
+</head>
+<body>
+    <h1>Soru Çözme Formu</h1>
+    <form id="questionForm">
+        <div class="question">
+            <p>Soru 1:</p>
+            <div class="options">
+                <label><input type="radio" name="question1" value="a"> A</label>
+                <label><input type="radio" name="question1" value="b"> B</label>
+                <label><input type="radio" name="question1" value="c"> C</label>
+                <label><input type="radio" name="question1" value="d"> D</label>
+                <label><input type="radio" name="question1" value="e"> E</label>
+            </div>
+        </div>
+        <div class="question">
+            <p>Soru 2:</p>
+            <div class="options">
+                <label><input type="radio" name="question2" value="a"> A</label>
+                <label><input type="radio" name="question2" value="b"> B</label>
+                <label><input type="radio" name="question2" value="c"> C</label>
+                <label><input type="radio" name="question2" value="d"> D</label>
+                <label><input type="radio" name="question2" value="e"> E</label>
+            </div>
+        </div>
+        <!-- Diğer soruları buraya ekleyebilirsin -->
+    </form>
+
+    <button type="button" id="addQuestionButton">Sıradaki Soruyu Ekle</button>
+
+    <script>
+        // Başlangıçta gösterilen soru sayısı
+        var shownQuestions = 2;
+        
+        // Butona basıldığında yeni bir soru ekleyen fonksiyon
+        document.getElementById("addQuestionButton").addEventListener("click", function() {
+            shownQuestions++; // Gösterilen soru sayısını artır
+            var newQuestionNumber = shownQuestions; // Yeni soru numarası
+            var newQuestionDiv = document.createElement("div"); // Yeni bir div oluştur
+            newQuestionDiv.classList.add("question"); // Div'e "question" class'ını ekle
+            newQuestionDiv.innerHTML = "<p>Soru " + newQuestionNumber + ":</p>"; // Soru metnini oluştur
+            var optionsDiv = document.createElement("div"); // Seçeneklerin div'i oluştur
+            optionsDiv.classList.add("options"); // Div'e "options" class'ını ekle
+            // Seçeneklerin input'larını oluştur ve div'e ekle
+            for (var i = 0; i < 5; i++) {
+                var optionInput = document.createElement("input");
+                optionInput.setAttribute("type", "radio");
+                optionInput.setAttribute("name", "question" + newQuestionNumber);
+                optionInput.setAttribute("value", String.fromCharCode(65 + i)); // A, B, C, D, E gibi değerler
+                var optionLabel = document.createElement("label");
+                optionLabel.appendChild(optionInput);
+                optionLabel.appendChild(document.createTextNode(" " + String.fromCharCode(65 + i))); // A, B, C, D, E gibi metinler
+                optionsDiv.appendChild(optionLabel);
+            }
+            newQuestionDiv.appendChild(optionsDiv); // Seçenekler div'ini soru div'ine ekle
+            document.getElementById("questionForm").appendChild(newQuestionDiv); // Soru div'ini form'a ekle
+        });
+    </script>
+</body>
+</html>
